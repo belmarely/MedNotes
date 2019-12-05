@@ -7,35 +7,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.Group?>
+<AnchorPane prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerFuncionesOrganicas">
    <children>
       <Label layoutX="163.0" layoutY="54.0" text="Funciones Organicas Generales" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
          <font>
             <Font size="20.0" />
          </font></Label>
       <Label layoutX="57.0" layoutY="128.0" text="Apetito:" />
-      <RadioButton layoutX="162.0" layoutY="128.0" mnemonicParsing="false" text="Disminuido" />
-      <RadioButton layoutX="294.0" layoutY="128.0" mnemonicParsing="false" text="Aumentado" />
-      <RadioButton layoutX="425.0" layoutY="128.0" mnemonicParsing="false" text="Sin alteración" />
-      <Label layoutX="57.0" layoutY="159.0" text="Sed:" />
-      <RadioButton layoutX="162.0" layoutY="159.0" mnemonicParsing="false" text="Disminuido" />
-      <RadioButton layoutX="294.0" layoutY="159.0" mnemonicParsing="false" text="Aumentado" />
-      <RadioButton layoutX="425.0" layoutY="159.0" mnemonicParsing="false" text="Sin alteración" />
-      <Label layoutX="57.0" layoutY="192.0" text="Micción" />
-      <RadioButton layoutX="162.0" layoutY="192.0" mnemonicParsing="false" text="Disminuido" />
-      <RadioButton layoutX="294.0" layoutY="192.0" mnemonicParsing="false" text="Aumentado" />
-      <RadioButton layoutX="425.0" layoutY="192.0" mnemonicParsing="false" text="Sin alteración" />
+           <RadioButton fx:id="apetito1" layoutX="162.0" layoutY="128.0" mnemonicParsing="false" text="Disminuido" />
+           <RadioButton fx:id="apetito2" layoutX="294.0" layoutY="128.0" mnemonicParsing="false" text="Aumentado" />
+           <RadioButton fx:id="apetito3" layoutX="425.0" layoutY="128.0" mnemonicParsing="false" text="Sin alteración" />
+           <Label layoutX="57.0" layoutY="159.0" text="Sed:" />
+
+
+      <RadioButton fx:id="sed1" layoutX="162.0" layoutY="159.0" mnemonicParsing="false" text="Disminuido" />
+      <RadioButton fx:id="sed2" layoutX="294.0" layoutY="159.0" mnemonicParsing="false" text="Aumentado" />
+      <RadioButton fx:id="sed3" layoutX="425.0" layoutY="159.0" mnemonicParsing="false" text="Sin alteración" />
+
+       <Label layoutX="57.0" layoutY="192.0" text="Micción" />
+      <RadioButton fx:id="miccion1" layoutX="162.0" layoutY="192.0" mnemonicParsing="false" text="Disminuido" />
+      <RadioButton fx:id="miccion2" layoutX="294.0" layoutY="192.0" mnemonicParsing="false" text="Aumentado" />
+      <RadioButton fx:id="miccion3" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" text="Sin alteración" />
       <Label layoutX="57.0" layoutY="227.0" text="Defecación" />
-      <RadioButton layoutX="162.0" layoutY="227.0" mnemonicParsing="false" text="Disminuido" />
-      <RadioButton layoutX="294.0" layoutY="227.0" mnemonicParsing="false" text="Aumentado" />
-      <RadioButton layoutX="425.0" layoutY="227.0" mnemonicParsing="false" text="Sin alteración" />
+      <RadioButton fx:id="defecacion1" layoutX="162.0" layoutY="227.0" mnemonicParsing="false" text="Disminuido" />
+      <RadioButton fx:id="defecacion2" layoutX="294.0" layoutY="227.0" mnemonicParsing="false" text="Aumentado" />
+      <RadioButton fx:id="defecacion3" layoutX="425.0" layoutY="227.0" mnemonicParsing="false" text="Sin alteración" />
       <Label layoutX="57.0" layoutY="259.0" text="Sueño:" />
-      <RadioButton layoutX="162.0" layoutY="259.0" mnemonicParsing="false" text="Disminuido" />
-      <RadioButton layoutX="294.0" layoutY="259.0" mnemonicParsing="false" text="Aumentado" />
-      <RadioButton layoutX="425.0" layoutY="259.0" mnemonicParsing="false" text="Sin alteración" />
+      <RadioButton fx:id="sueno1" layoutX="162.0" layoutY="259.0" mnemonicParsing="false" text="Disminuido" />
+      <RadioButton fx:id="sueno2" layoutX="294.0" layoutY="259.0" mnemonicParsing="false" text="Aumentado" />
+      <RadioButton fx:id="sueno3" layoutX="425.0" layoutY="259.0" mnemonicParsing="false" text="Sin alteración" />
       <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="24.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../logosinLetra.jpg" />
+
          </image>
       </ImageView>
    </children>
