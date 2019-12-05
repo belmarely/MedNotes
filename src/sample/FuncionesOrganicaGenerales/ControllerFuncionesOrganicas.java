@@ -1,4 +1,4 @@
-package sample;
+package sample.FuncionesOrganicaGenerales;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
