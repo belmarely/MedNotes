@@ -2,12 +2,14 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="990.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Label layoutX="163.0" layoutY="54.0" text="Funciones Organicas Generales" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
          <font>
@@ -35,8 +37,59 @@
       <RadioButton layoutX="425.0" layoutY="259.0" mnemonicParsing="false" text="Sin alteración" />
       <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="24.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../logosinLetra.jpg" />
+            <Image url="@../../../logo2.png" />
          </image>
       </ImageView>
+      <Label layoutX="233.0" layoutY="317.0" text="Examen Físico" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="347.0" text="Apariencia General:" />
+      <TextArea layoutX="52.0" layoutY="369.0" prefHeight="80.0" prefWidth="498.0" />
+      <Label layoutX="56.0" layoutY="464.0" text="Presión Arterial:" />
+      <TextField layoutX="151.0" layoutY="460.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="301.0" layoutY="464.0" text="Frecuencia Cardíaca:" />
+      <TextField layoutX="425.0" layoutY="460.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="56.0" layoutY="496.0" text="Frecuencia Respiratoria:" />
+      <TextField layoutX="189.0" layoutY="492.0" prefHeight="25.0" prefWidth="73.0" />
+      <Label layoutX="301.0" layoutY="496.0" text="Temperatura:" />
+      <TextField layoutX="425.0" layoutY="492.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="56.0" layoutY="528.0" text="Sistema Nervioso Central:" />
+      <Label layoutX="301.0" layoutY="528.0" text="Cabeza:" />
+      <TextField layoutX="425.0" layoutY="524.0" prefHeight="25.0" prefWidth="111.0" />
+      <TextField layoutX="55.0" layoutY="557.0" prefHeight="25.0" prefWidth="208.0" />
+      <Label layoutX="302.0" layoutY="561.0" text="Ojos:" />
+      <TextField layoutX="426.0" layoutY="557.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="57.0" layoutY="595.0" text="Nariz Paranasales:" />
+      <TextField layoutX="160.0" layoutY="591.0" prefHeight="45.0" prefWidth="103.0" />
+      <Label layoutX="302.0" layoutY="595.0" text="Boca Faringe:" />
+      <TextField layoutX="426.0" layoutY="591.0" prefHeight="45.0" prefWidth="111.0" />
+      <Label layoutX="58.0" layoutY="652.0" text="Cuello:" />
+      <TextField layoutX="153.0" layoutY="648.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="303.0" layoutY="652.0" text="Respiratorio:" />
+      <TextField layoutX="427.0" layoutY="648.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="58.0" layoutY="686.0" text="Cardiovascular:" />
+      <TextField layoutX="153.0" layoutY="682.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="303.0" layoutY="686.0" text="Digestivo:" />
+      <TextField layoutX="427.0" layoutY="682.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="58.0" layoutY="720.0" text="Osteomuscular:" />
+      <TextField layoutX="153.0" layoutY="716.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="303.0" layoutY="720.0" text="Hematológico:" />
+      <TextField layoutX="427.0" layoutY="716.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="58.0" layoutY="754.0" text="Genitourinario:" />
+      <TextField layoutX="153.0" layoutY="750.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="303.0" layoutY="754.0" text="Infatico:" />
+      <TextField layoutX="427.0" layoutY="750.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="58.0" layoutY="788.0" text="Endocrino:" />
+      <TextField layoutX="153.0" layoutY="784.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="303.0" layoutY="788.0" text="Piel Faneras:" />
+      <TextField layoutX="427.0" layoutY="784.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="242.0" layoutY="828.0" text="Diagnóstico" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="59.0" layoutY="867.0" prefHeight="96.0" prefWidth="498.0" />
    </children>
 </AnchorPane>
