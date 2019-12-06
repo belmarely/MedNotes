@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="292.0" prefWidth="572.0" styleClass="fondo" stylesheets="@../cssLogin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox id="vbox1" alignment="CENTER" layoutX="-9.0" prefHeight="326.0" prefWidth="173.0" styleClass="vbox1" stylesheets="@../cssLogin.css">
+         <children>
+
+         </children></VBox>
+      <TextField id="usuario" layoutX="237.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Usuario" stylesheets="@../cssLogin.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField id="contraseña" layoutX="237.0" layoutY="194.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Contraseña" stylesheets="@../cssLogin.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="238.0" layoutY="242.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="botonInicioSesion" stylesheets="@../cssLogin.css" text="Iniciar Sesión" />
+      <ImageView fitHeight="105.0" fitWidth="101.0" layoutX="312.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/iconoInicio.png" />
+         </image>
+      </ImageView>
+      <Label id="labelContraseña" layoutX="364.0" layoutY="285.0" stylesheets="@../cssLogin.css" text="¿Olvidó su contraseña?" />
+   </children>
+</AnchorPane>

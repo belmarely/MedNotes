@@ -1,0 +1,25 @@
+
+.background {
+    -fx-background-color: white;
+}
+
+.vbox1{
+    -fx-background-color: #21C6B6;
+}
+
+.botonInicioSesion{
+    -fx-background-color: #21C6B6;
+}
+
+.fondo{
+    -fx-background-color: #FFFFFF;
+}
+
+.labelContraseña{
+    -fx-text-fill: #252F2C;
+}
+
+.labelContraseña:hover{
+    -fx-text-fill: #0071D5;
+    -fx-underline: true;
+}
