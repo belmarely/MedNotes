@@ -68,7 +68,7 @@ public class Controller implements Initializable {
                     nodes[j].setStyle("-fx-background-color : #0A0E3F");
                 });
                 nodes[i].setOnMouseExited(event -> {
-                    nodes[j].setStyle("-fx-background-color : #02030A");
+                    nodes[j].setStyle("-fx-background-color : #348F87");
                 });
                 pnItems.getChildren().add(nodes[i]);
             } catch (IOException e) {
@@ -81,7 +81,7 @@ public class Controller implements Initializable {
 
     public void handleClicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnCustomers) {
-            pnlCustomer.setStyle("-fx-background-color : #1620A1");
+            pnlCustomer.setStyle("-fx-background-color :  #348F87");
             pnlCustomer.toFront();
         }
         if (actionEvent.getSource() == btnMenus) {
@@ -89,7 +89,7 @@ public class Controller implements Initializable {
             pnlMenus.toFront();
         }
         if (actionEvent.getSource() == btnOverview) {
-            pnlOverview.setStyle("-fx-background-color : #02030A");
+            pnlOverview.setStyle("-fx-background-color : #348F87");
             pnlOverview.toFront();
         }
         if(actionEvent.getSource()==btnOrders)
