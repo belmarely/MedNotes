@@ -103,7 +103,7 @@
       <TextArea fx:id="txtMotivo" layoutX="163.0" layoutY="1402.0" prefHeight="121.0" prefWidth="397.0" />
       <TextArea fx:id="txtSintomaPrin" layoutX="164.0" layoutY="1547.0" prefHeight="121.0" prefWidth="397.0" />
       <Button fx:id="btnGuardar" layoutX="166.0" layoutY="1694.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="45.0" prefWidth="136.0" text="Guardar" />
-      <Button fx:id="btnCancelar" layoutX="324.0" layoutY="1694.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="136.0" text="Cancelar" />
+      <Button fx:id="btnCancelar" layoutX="324.0" layoutY="1694.0" mnemonicParsing="false" onAction="#btnCancelar" prefHeight="45.0" prefWidth="136.0" text="Cancelar" />
             </children>
         </AnchorPane>
     </content>
