@@ -2,21 +2,16 @@ package sample.FuncionesOrganicaGenerales;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javax.swing.ButtonGroup;
-import javax.swing.JRadioButton;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import sample.libs.Conexion;
+import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class ControllerFuncionesOrganicas {
@@ -118,8 +113,77 @@ public class ControllerFuncionesOrganicas {
     @FXML
     private void initialize() {
         relacionesRadioBotones();
+        llenarCampos();
     }
 
+    private void llenarCampos() {
+        if (MisFunciones.getIdExamenFisico()!= 0){
+            FuncionesOrganicasGenerales examenFisico = FuncionesOrganicasGenerales.BuscarRegistro();
+            txtPresion.setText(examenFisico.getTxtPresion());
+            txtSistemaN.setText(examenFisico.getTxtSistemaN());
+            txtPielFaneras.setText(examenFisico.getTxtPielFaneras());
+            txtApariencia.setText(examenFisico.getTxtApariencia());
+            txtFrecuenciaC.setText(examenFisico.getTxtFrecuenciaC());
+            txtFrecuenciaR.setText(examenFisico.getTxtFrecuenciaR());
+            txtTemperatura.setText(examenFisico.getTxtTemperatura());
+            txtCabeza.setText(examenFisico.getTxtCabeza());
+            txtOjos.setText(examenFisico.getTxtOjos());
+            txtNariz.setText(examenFisico.getTxtNariz());
+            txtBoca.setText(examenFisico.getTxtBoca());
+            txtCuello.setText(examenFisico.getTxtCuello());
+            txtRespiratorio.setText(examenFisico.getTxtRespiratorio());
+            txtCardioVascular.setText(examenFisico.getTxtCardioVascular());
+            txtDigestivo.setText(examenFisico.getTxtDigestivo());
+            txtOsteo.setText(examenFisico.getTxtOsteo());
+            txtHemat.setText(examenFisico.getTxtHemat());
+            txtMotivo.setText(examenFisico.getTxtMotivo());
+            txtSintomaPrin.setText(examenFisico.getTxtSintomaPrin());
+            txtGenitou.setText(examenFisico.getTxtGenitou());
+            txtInfatico.setText(examenFisico.getTxtInfatico());
+            txtEndocrino.setText(examenFisico.getTxtEndocrino());
+            llenarRadioBotones(examenFisico);
+            btnGuardar.setText("Actualizar");
+        }
+    }
+
+
+    private void llenarRadioBotones(FuncionesOrganicasGenerales examenFisico){
+        if (examenFisico.getApetito().equals("Disminuido")){
+            apetito1.setSelected(true);
+        } else if(examenFisico.getApetito().equals("Aumentado")){
+            apetito2.setSelected(true);
+        } else if (examenFisico.getApetito().equals("Sin Alteracion")){
+            apetito3.setSelected(true);
+        }
+        if (examenFisico.getSed().equals("Disminuido")){
+            sed1.setSelected(true);
+        } else if(examenFisico.getSed().equals("Aumentado")){
+            sed2.setSelected(true);
+        } else if (examenFisico.getSed().equals("Sin Alteracion")){
+            sed3.setSelected(true);
+        }
+        if (examenFisico.getSueno().equals("Disminuido")){
+            sueno1.setSelected(true);
+        } else if(examenFisico.getSueno().equals("Aumentado")){
+            sueno2.setSelected(true);
+        } else if (examenFisico.getSueno().equals("Sin Alteracion")){
+            sueno3.setSelected(true);
+        }
+        if (examenFisico.getDefecacion().equals("Disminuido")){
+            defecacion1.setSelected(true);
+            } else if(examenFisico.getDefecacion().equals("Aumentado")){
+            defecacion2.setSelected(true);
+        } else if (examenFisico.getDefecacion().equals("Sin Alteracion")){
+            defecacion3.setSelected(true);
+        }
+        if (examenFisico.getMiccion().equals("Disminuido")){
+            miccion1.setSelected(true);
+        } else if(examenFisico.getMiccion().equals("Aumentado")){
+            miccion2.setSelected(true);
+        } else if (examenFisico.getMiccion().equals("Sin Alteracion")){
+            miccion3.setSelected(true);
+        }
+    }
 
     private void relacionesRadioBotones() {
         ToggleGroup agrupacion1 = new ToggleGroup();
@@ -143,6 +207,7 @@ public class ControllerFuncionesOrganicas {
         sueno2.setToggleGroup(agrupacion5);
         sueno3.setToggleGroup(agrupacion5);
     }
+
     public void btnCancelar() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
@@ -186,34 +251,50 @@ public class ControllerFuncionesOrganicas {
             sueno= "Sin Alteracion";
         }
     }
-    public void Guardar(ActionEvent actionEvent) {
 
+    public void BotonGuardarActualizar(ActionEvent actionEvent){
+        if (MisFunciones.getIdExamenFisico()!=0) {
+            Actualizar();
+        } else {
+            Guardar();
+        }
+    }
+
+    private void Actualizar() {
+    }
+
+    private boolean comprobarCamposVacios(){
+
+        if (!txtPielFaneras.getText().isBlank() &&
+                !txtPresion.getText().isBlank() &&
+                !txtFrecuenciaC.getText().isBlank() &&
+                !txtFrecuenciaR.getText().isBlank() &&
+                !txtSistemaN.getText().isBlank() &&
+                !txtCabeza.getText().isBlank() &&
+                !txtOjos.getText().isBlank() &&
+                !txtNariz.getText().isBlank() &&
+                !txtBoca.getText().isBlank() &&
+                !txtCuello.getText().isBlank() &&
+                !txtCardioVascular.getText().isBlank() &&
+                !txtDigestivo.getText().isBlank() &&
+                !txtOsteo.getText().isBlank() &&
+                !txtHemat.getText().isBlank() &&
+                !txtMotivo.getText().isBlank() &&
+                !txtSintomaPrin.getText().isBlank() &&
+                !txtGenitou.getText().isBlank() &&
+                !txtInfatico.getText().isBlank() &&
+                !txtEndocrino.getText().isBlank()&&
+                !txtApariencia.getText().isBlank()&&
+                !txtTemperatura.getText().isBlank()&&
+                !txtRespiratorio.getText().isBlank()){
+            return true;
+        }
+        return false;
+    }
+
+    public void Guardar() {
         seleccionRadioBoton();
-        if (
-                !txtPielFaneras.getText().isBlank() &&
-                        !txtPresion.getText().isBlank() &&
-                        !txtFrecuenciaC.getText().isBlank() &&
-                        !txtFrecuenciaR.getText().isBlank() &&
-                        !txtSistemaN.getText().isBlank() &&
-                        !txtCabeza.getText().isBlank() &&
-                        !txtOjos.getText().isBlank() &&
-                        !txtNariz.getText().isBlank() &&
-                        !txtBoca.getText().isBlank() &&
-                        !txtCuello.getText().isBlank() &&
-                        !txtCardioVascular.getText().isBlank() &&
-                        !txtDigestivo.getText().isBlank() &&
-                        !txtOsteo.getText().isBlank() &&
-                        !txtHemat.getText().isBlank() &&
-                        !txtMotivo.getText().isBlank() &&
-                        !txtSintomaPrin.getText().isBlank() &&
-                        !txtGenitou.getText().isBlank() &&
-                        !txtInfatico.getText().isBlank() &&
-                        !txtEndocrino.getText().isBlank()&&
-                        !txtApariencia.getText().isBlank()&&
-                        !txtTemperatura.getText().isBlank()&&
-                        !txtRespiratorio.getText().isBlank()
-        ) {
-
+        if (comprobarCamposVacios()) {
             try {
                 PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                         "INSERT INTO `registro_medico`.`examenes_fisicos` (`id_paciente`" +
@@ -278,4 +359,7 @@ public class ControllerFuncionesOrganicas {
         alert.showAndWait();
     }
 
+
 }
+
+
