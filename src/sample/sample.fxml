@@ -26,6 +26,7 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
    <children>
       <ImageView fitHeight="157.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -33,7 +34,8 @@
             <Image url="@../img/logoMedNotes.jpg" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" text="Crear Cuenta" GridPane.rowIndex="8" />
-      <Button mnemonicParsing="false" text="Iniciar Sesión" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" text="Crear Cuenta" GridPane.rowIndex="9" />
+      <Button mnemonicParsing="false" text="Iniciar Sesión" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+      <Button mnemonicParsing="false" onAction="#ExamenFisico" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="7" />
    </children>
 </GridPane>
