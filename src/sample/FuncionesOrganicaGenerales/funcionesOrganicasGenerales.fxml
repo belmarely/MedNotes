@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane mouseTransparent="true" prefHeight="1742.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FuncionesOrganicaGenerales.ControllerFuncionesOrganicas">
+<AnchorPane prefHeight="1742.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FuncionesOrganicaGenerales.ControllerFuncionesOrganicas">
 
    <children>
       <Label layoutX="163.0" layoutY="54.0" text="Funciones Organicas Generales" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
