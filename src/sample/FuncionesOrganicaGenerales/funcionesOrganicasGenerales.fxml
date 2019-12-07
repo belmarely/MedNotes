@@ -9,7 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD:src/sample/FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml
 <AnchorPane prefHeight="1363.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FuncionesOrganicaGenerales.ControllerFuncionesOrganicas">
+=======
+<AnchorPane prefHeight="1363.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerFuncionesOrganicas">
+>>>>>>> actualizacion:src/sample/funcionesOrganicasGenerales.fxml
    <children>
       <Label layoutX="163.0" layoutY="54.0" text="Funciones Organicas Generales" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
          <font>
@@ -40,11 +44,19 @@
        <RadioButton fx:id="sueno3" layoutX="425.0" layoutY="259.0" mnemonicParsing="false" text="Sin alteración" />
       <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="24.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
+<<<<<<< HEAD:src/sample/FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml
 <<<<<<< HEAD:src/sample/funcionesOrganicasGenerales.fxml
             <Image url="@../img/logo2.png" />
 =======
 
 >>>>>>> 13ffadf50aeb4a2d4d07063a3371b40aee28fd3d:src/sample/FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml
+=======
+<<<<<<< HEAD
+            <Image url="@../img/logo2.png" />
+=======
+
+>>>>>>> 6dc8424218bb93626a9c8dd462d16bc426127c04
+>>>>>>> actualizacion:src/sample/funcionesOrganicasGenerales.fxml
          </image>
       </ImageView>
       <Label layoutX="233.0" layoutY="317.0" text="Examen Físico" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
