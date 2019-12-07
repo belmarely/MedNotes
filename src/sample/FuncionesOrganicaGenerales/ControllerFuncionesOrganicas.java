@@ -261,6 +261,16 @@ public class ControllerFuncionesOrganicas {
     }
 
     private void Actualizar() {
+        seleccionRadioBoton();
+        if (comprobarCamposVacios()) {
+            FuncionesOrganicasGenerales examenFisico = crearIntancia();
+            FuncionesOrganicasGenerales.Actualizar(examenFisico);
+                mensaje("Datos Actualizados exitosamente");
+                btnCancelar();
+
+        }else{
+            mensaje("Campos Vacios");
+        }
     }
 
     private boolean comprobarCamposVacios(){
@@ -292,31 +302,35 @@ public class ControllerFuncionesOrganicas {
         return false;
     }
 
+    public FuncionesOrganicasGenerales crearIntancia(){
+        FuncionesOrganicasGenerales examenFisico = new
+                FuncionesOrganicasGenerales(
+                apetito,sed,miccion,defecacion,sueno,
+                txtPielFaneras.getText(),txtApariencia.getText(),
+                txtPresion.getText(),txtFrecuenciaC.getText(),
+                txtFrecuenciaR.getText(),txtTemperatura.getText(),
+                txtSistemaN.getText(),txtCabeza.getText(),
+                txtOjos.getText(),txtNariz.getText(),txtBoca.getText(),
+                txtCuello.getText(),txtRespiratorio.getText(),
+                txtCardioVascular.getText(),txtDigestivo.getText(),
+                txtOsteo.getText(),txtHemat.getText(),txtMotivo.getText(),
+                txtSintomaPrin.getText(),txtGenitou.getText(),
+                txtInfatico.getText(),txtEndocrino.getText()
+        );
+        return examenFisico;
+    }
+
     public void Guardar() {
         seleccionRadioBoton();
         if (comprobarCamposVacios()) {
-            FuncionesOrganicasGenerales examenFisico = new
-                    FuncionesOrganicasGenerales(
-                    apetito,sed,miccion,defecacion,sueno,
-                    txtPielFaneras.getText(),txtApariencia.getText(),
-                    txtPresion.getText(),txtFrecuenciaC.getText(),
-                    txtFrecuenciaR.getText(),txtTemperatura.getText(),
-                    txtSistemaN.getText(),txtCabeza.getText(),
-                    txtOjos.getText(),txtNariz.getText(),txtBoca.getText(),
-                    txtCuello.getText(),txtRespiratorio.getText(),
-                    txtCardioVascular.getText(),txtDigestivo.getText(),
-                    txtOsteo.getText(),txtHemat.getText(),txtMotivo.getText(),
-                    txtSintomaPrin.getText(),txtGenitou.getText(),
-                    txtInfatico.getText(),txtEndocrino.getText()
-            );
-                if(FuncionesOrganicasGenerales.Guardar(examenFisico)){
+            FuncionesOrganicasGenerales examenFisico = crearIntancia();
+                FuncionesOrganicasGenerales.Guardar(examenFisico);
                     mensaje("Datos guardados exitosamente");
                     btnCancelar();
-                }
+
         }else{
             mensaje("Campos Vacios");
         }
-
     }
 
     private void mensaje(String mensaje){

@@ -50,6 +50,43 @@ public class FuncionesOrganicasGenerales {
                             " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
                             " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
             );
+            sentencia = examenFisico.seteandoSentenciaPreparada(examenFisico,sentencia);
+            boolean resultado=  sentencia.execute();
+            return resultado;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+     return false;
+    }
+
+    public static boolean Actualizar(FuncionesOrganicasGenerales examenFisico){
+        try{
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "UPDATE `registro_medico`.`examenes_fisicos` \n" +
+                            "SET `id_paciente` = ?, `sintoma_principal` = ?, \n" +
+                            "`motivo_consulta` = ?, `apariencia_general` = ?, \n" +
+                            "`presion_arterial` = ?, `frecuencia_cardiaca` = ?, \n" +
+                            "`frecuencia_respiratoria` = ?, `temperatura` = ?, \n" +
+                            "`apetito` = ?, `sed` = ?, `sueño` = ?, `miccion` = ?, \n" +
+                            "`defecacion` = ?, `snc` = ?, `cabeza` = ?, `ojos` = ?,\n" +
+                            " `nariz_paranasales` = ?, `boca_faringe` = ?, `cuello` = ?,\n" +
+                            " `respiratorio` = ?, `cardiovascular` = ?, `digestivo` = ?, \n" +
+                            "`osteomuscular` = ?, `hematologico` = ?, `genitoutario` = ?, \n" +
+                            "`infatico` = ?, `endocrino` = ?, `piel_faneras` = ? \n" +
+                            "WHERE (`id_examen_fisico` = ?);"
+            );
+            sentencia = examenFisico.seteandoSentenciaPreparada(examenFisico,sentencia);
+            sentencia.setInt(29,MisFunciones.getIdExamenFisico());
+            boolean resultado=  sentencia.execute();
+            return resultado;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    private PreparedStatement seteandoSentenciaPreparada(FuncionesOrganicasGenerales examenFisico, PreparedStatement sentencia){
+        try{
             sentencia.setInt(1,MisFunciones.getIdPaciente());
             sentencia.setString(2, examenFisico.getTxtSintomaPrin());
             sentencia.setString(3, examenFisico.getTxtMotivo());
@@ -78,12 +115,10 @@ public class FuncionesOrganicasGenerales {
             sentencia.setString(26, examenFisico.getTxtInfatico());
             sentencia.setString(27, examenFisico.getTxtEndocrino());
             sentencia.setString(28, examenFisico.getTxtPielFaneras());
-            boolean resultado=  sentencia.execute();
-            return resultado;
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
-     return false;
+        return sentencia;
     }
 
     public FuncionesOrganicasGenerales(String apetito, String sed, String miccion, String defecacion, String sueno, String txtPielFaneras, String txtApariencia, String txtPresion, String txtFrecuenciaC, String txtFrecuenciaR, String txtTemperatura, String txtSistemaN, String txtCabeza, String txtOjos, String txtNariz, String txtBoca, String txtCuello, String txtRespiratorio, String txtCardioVascular, String txtDigestivo, String txtOsteo, String txtHemat, String txtMotivo, String txtSintomaPrin, String txtGenitou, String txtInfatico, String txtEndocrino) {

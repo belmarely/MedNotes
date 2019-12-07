@@ -2,8 +2,8 @@ package sample.modelos;
 
 public class MisFunciones {
     private static int idUsuario;
-    private static int idPaciente = 1;
-    private static int idExamenFisico = 3;
+    private static int idPaciente = 1 ;
+    private static int idExamenFisico ;
 
     public static int getIdExamenFisico() {
         return idExamenFisico;
