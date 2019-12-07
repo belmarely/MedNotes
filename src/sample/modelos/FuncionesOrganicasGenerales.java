@@ -35,6 +35,57 @@ public class FuncionesOrganicasGenerales {
     private String txtInfatico;
     private String txtEndocrino;
 
+    public static boolean Guardar(FuncionesOrganicasGenerales examenFisico){
+        try{
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "INSERT INTO `registro_medico`.`examenes_fisicos` (`id_paciente`" +
+                            ", `sintoma_principal`, `motivo_consulta`, `apariencia_general`" +
+                            ", `presion_arterial`, `frecuencia_cardiaca`," +
+                            " `frecuencia_respiratoria`, `temperatura`, `apetito`," +
+                            " `sed`, `sueño`, `miccion`, `defecacion`, `snc`, `cabeza`," +
+                            " `ojos`, `nariz_paranasales`, `boca_faringe`, `cuello`," +
+                            " `respiratorio`, `cardiovascular`, `digestivo`, `osteomuscular`," +
+                            " `hematologico`, `genitoutario`, `infatico`, `endocrino`," +
+                            " `piel_faneras`) VALUES (?, ?, ?, ?, ?," +
+                            " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                            " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+            );
+            sentencia.setInt(1,MisFunciones.getIdPaciente());
+            sentencia.setString(2, examenFisico.getTxtSintomaPrin());
+            sentencia.setString(3, examenFisico.getTxtMotivo());
+            sentencia.setString(4, examenFisico.getTxtApariencia());
+            sentencia.setDouble(5, Double.valueOf(examenFisico.getTxtPresion()));
+            sentencia.setDouble(6, Double.valueOf(examenFisico.getTxtFrecuenciaC()));
+            sentencia.setDouble(7, Double.valueOf(examenFisico.getTxtFrecuenciaR()));
+            sentencia.setDouble(8, Double.valueOf(examenFisico.getTxtTemperatura()));
+            sentencia.setString(9, examenFisico.getApetito());
+            sentencia.setString(10, examenFisico.getSed());
+            sentencia.setString(11, examenFisico.getSueno());
+            sentencia.setString(12, examenFisico.getMiccion());
+            sentencia.setString(13, examenFisico.getDefecacion());
+            sentencia.setString(14, examenFisico.getTxtSistemaN());
+            sentencia.setString(15, examenFisico.getTxtCabeza());
+            sentencia.setString(16, examenFisico.getTxtOjos());
+            sentencia.setString(17, examenFisico.getTxtNariz());
+            sentencia.setString(18, examenFisico.getTxtBoca());
+            sentencia.setString(19, examenFisico.getTxtCuello());
+            sentencia.setString(20, examenFisico.getTxtRespiratorio());
+            sentencia.setString(21, examenFisico.getTxtCardioVascular());
+            sentencia.setString(22, examenFisico.getTxtDigestivo());
+            sentencia.setString(23, examenFisico.getTxtOsteo());
+            sentencia.setString(24, examenFisico.getTxtHemat());
+            sentencia.setString(25, examenFisico.getTxtGenitou());
+            sentencia.setString(26, examenFisico.getTxtInfatico());
+            sentencia.setString(27, examenFisico.getTxtEndocrino());
+            sentencia.setString(28, examenFisico.getTxtPielFaneras());
+            boolean resultado=  sentencia.execute();
+            return resultado;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+     return false;
+    }
+
     public FuncionesOrganicasGenerales(String apetito, String sed, String miccion, String defecacion, String sueno, String txtPielFaneras, String txtApariencia, String txtPresion, String txtFrecuenciaC, String txtFrecuenciaR, String txtTemperatura, String txtSistemaN, String txtCabeza, String txtOjos, String txtNariz, String txtBoca, String txtCuello, String txtRespiratorio, String txtCardioVascular, String txtDigestivo, String txtOsteo, String txtHemat, String txtMotivo, String txtSintomaPrin, String txtGenitou, String txtInfatico, String txtEndocrino) {
         this.apetito = apetito;
         this.sed = sed;
