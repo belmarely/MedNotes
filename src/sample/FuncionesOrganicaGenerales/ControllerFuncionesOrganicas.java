@@ -96,13 +96,14 @@ public class ControllerFuncionesOrganicas {
     private RadioButton apetito2;
     @FXML
     private RadioButton apetito3;
-    @FXML
+
 
     private ToggleGroup agrupacion1;
     private ToggleGroup agrupacion2;
     private ToggleGroup agrupacion3;
     private ToggleGroup agrupacion4;
     private ToggleGroup agrupacion5;
+    @FXML
     private ScrollBar scrolll;
 
     @FXML
@@ -112,23 +113,23 @@ public class ControllerFuncionesOrganicas {
 
 
     private void relacionesRadioBotones() {
-        agrupacion1 = new ToggleGroup();
+        ToggleGroup agrupacion1 = new ToggleGroup();
         apetito1.setToggleGroup(agrupacion1);
         apetito2.setToggleGroup(agrupacion1);
         apetito3.setToggleGroup(agrupacion1);
-        agrupacion2 = new ToggleGroup();
+        ToggleGroup agrupacion2 = new ToggleGroup();
         sed1.setToggleGroup(agrupacion2);
         sed2.setToggleGroup(agrupacion2);
         sed3.setToggleGroup(agrupacion2);
-        agrupacion3 = new ToggleGroup();
+        ToggleGroup agrupacion3 = new ToggleGroup();
         miccion1.setToggleGroup(agrupacion3);
         miccion2.setToggleGroup(agrupacion3);
         miccion3.setToggleGroup(agrupacion3);
-        agrupacion4 = new ToggleGroup();
+        ToggleGroup agrupacion4 = new ToggleGroup();
         defecacion1.setToggleGroup(agrupacion4);
         defecacion2.setToggleGroup(agrupacion4);
         defecacion3.setToggleGroup(agrupacion4);
-        agrupacion5 = new ToggleGroup();
+        ToggleGroup agrupacion5 = new ToggleGroup();
         sueno1.setToggleGroup(agrupacion5);
         sueno2.setToggleGroup(agrupacion5);
         sueno3.setToggleGroup(agrupacion5);
