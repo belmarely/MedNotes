@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import sample.libs.Conexion;
 import sample.modelos.MisFunciones;
@@ -17,7 +20,11 @@ import java.util.ArrayList;
 
 
 public class ControllerFuncionesOrganicas {
-
+    private String apetito = "";
+    private String sed = "";
+    private String miccion = "";
+    private String defecacion = "";
+    private String sueno = "";
     @FXML
     private TextField txtPielFaneras;
     @FXML
@@ -49,7 +56,7 @@ public class ControllerFuncionesOrganicas {
     @FXML
     private TextField txtDigestivo;
     @FXML
-    private TextField txtOseo;
+    private TextField txtOsteo;
     @FXML
     private TextField txtHemat;
     @FXML
@@ -97,6 +104,8 @@ public class ControllerFuncionesOrganicas {
     @FXML
     private RadioButton apetito3;
 
+    @FXML
+    ToggleGroup right;
 
     private ToggleGroup agrupacion1;
     private ToggleGroup agrupacion2;
@@ -134,33 +143,52 @@ public class ControllerFuncionesOrganicas {
         sueno2.setToggleGroup(agrupacion5);
         sueno3.setToggleGroup(agrupacion5);
     }
-    public void btnCancelar(ActionEvent actionEvent) {
+    public void btnCancelar() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
+
+    public void seleccionRadioBoton(){
+        if (apetito1.isSelected()) {
+            apetito= "Disminuido";
+        }else if (apetito2.isSelected()){
+            apetito= "Aumentado";
+        } else if (apetito3.isSelected()){
+            apetito= "Sin Alteracion";
+        }
+        if (sed1.isSelected()) {
+            sed= "Disminuido";
+        }else if (sed2.isSelected()){
+            sed= "Aumentado";
+        } else if (sed3.isSelected()){
+            sed= "Sin Alteracion";
+        }
+        if (miccion1.isSelected()) {
+            miccion= "Disminuido";
+        }else if (miccion2.isSelected()){
+            miccion= "Aumentado";
+        } else if (miccion3.isSelected()){
+            miccion= "Sin Alteracion";
+        }
+        if (defecacion1.isSelected()) {
+            defecacion= "Disminuido";
+        }else if (defecacion2.isSelected()){
+            defecacion= "Aumentado";
+        } else if (defecacion3.isSelected()){
+            defecacion= "Sin Alteracion";
+        }
+
+        if (sueno1.isSelected()) {
+        sueno= "Disminuido";
+        }else if (sueno2.isSelected()){
+            sueno= "Aumentado";
+        } else if (sueno3.isSelected()){
+            sueno= "Sin Alteracion";
+        }
+    }
     public void Guardar(ActionEvent actionEvent) {
-        String apetito = "";
-        String sed = "";
-        String miccion = "";
-        String defecacion = "";
-        String sueno = "";
 
-        if (agrupacion1.getSelectedToggle() != null) {
-            apetito = agrupacion1.getSelectedToggle().getUserData().toString();
-        }
-        if (agrupacion1.getSelectedToggle() != null) {
-            sed = agrupacion2.getSelectedToggle().getUserData().toString();
-        }
-        if (agrupacion1.getSelectedToggle() != null) {
-            miccion = agrupacion3.getSelectedToggle().getUserData().toString();
-        }
-        if (agrupacion1.getSelectedToggle() != null) {
-            defecacion = agrupacion4.getSelectedToggle().getUserData().toString();
-        }
-        if (agrupacion1.getSelectedToggle() != null) {
-            sueno = agrupacion5.getSelectedToggle().getUserData().toString();
-        }
-
+        seleccionRadioBoton();
         if (
                 !txtPielFaneras.getText().isBlank() &&
                         !txtPresion.getText().isBlank() &&
@@ -174,7 +202,7 @@ public class ControllerFuncionesOrganicas {
                         !txtCuello.getText().isBlank() &&
                         !txtCardioVascular.getText().isBlank() &&
                         !txtDigestivo.getText().isBlank() &&
-                        !txtOseo.getText().isBlank() &&
+                        !txtOsteo.getText().isBlank() &&
                         !txtHemat.getText().isBlank() &&
                         !txtMotivo.getText().isBlank() &&
                         !txtSintomaPrin.getText().isBlank() &&
@@ -183,8 +211,7 @@ public class ControllerFuncionesOrganicas {
                         !txtEndocrino.getText().isBlank()&&
                         !txtApariencia.getText().isBlank()&&
                         !txtTemperatura.getText().isBlank()&&
-                        !txtRespiratorio.getText().isBlank()&&
-                        !txtOseo.getText().isBlank()
+                        !txtRespiratorio.getText().isBlank()
         ) {
 
             try {
@@ -197,48 +224,58 @@ public class ControllerFuncionesOrganicas {
                                 " `ojos`, `nariz_paranasales`, `boca_faringe`, `cuello`," +
                                 " `respiratorio`, `cardiovascular`, `digestivo`, `osteomuscular`," +
                                 " `hematologico`, `genitoutario`, `infatico`, `endocrino`," +
-                                " `piel_faneras`) VALUES ('?', '?', '?', '?', '?'," +
-                                " '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?'," +
-                                " '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?');"
+                                " `piel_faneras`) VALUES (?, ?, ?, ?, ?," +
+                                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
                 );
-                sentencia.setInt(1, MisFunciones.getIdPaciente());
+                int numero1= 1;
+                sentencia.setInt(1,numero1);
                 sentencia.setString(2, txtSintomaPrin.getText());
                 sentencia.setString(3, txtMotivo.getText());
                 sentencia.setString(4, txtApariencia.getText());
-                sentencia.setString(5, txtPresion.getText());
-                sentencia.setString(6, txtFrecuenciaC.getText());
-                sentencia.setString(7, txtFrecuenciaR.getText());
-                sentencia.setString(8, txtTemperatura.getText());
+                sentencia.setDouble(5, Double.valueOf(txtPresion.getText()));
+                sentencia.setDouble(6, Double.valueOf(txtFrecuenciaC.getText()));
+                sentencia.setDouble(7, Double.valueOf(txtFrecuenciaR.getText()));
+                sentencia.setDouble(8, Double.valueOf(txtTemperatura.getText()));
                 sentencia.setString(9, apetito);
                 sentencia.setString(10, sed);
                 sentencia.setString(11, sueno);
                 sentencia.setString(12, miccion);
                 sentencia.setString(13, defecacion);
-                sentencia.setString(14, txtSistemaN.getText());
-                sentencia.setString(15, txtCabeza.getText());
-                sentencia.setString(16, txtOjos.getText());
-                sentencia.setString(17, txtNariz.getText());
-                sentencia.setString(18, txtBoca.getText());
-                sentencia.setString(19, txtCuello.getText());
-                sentencia.setString(20, txtRespiratorio.getText());
-                sentencia.setString(21, txtCardioVascular.getText());
-                sentencia.setString(22, txtDigestivo.getText());
-                sentencia.setString(23, txtOseo.getText());
-                sentencia.setString(24, txtHemat.getText());
-                sentencia.setString(25, txtGenitou.getText());
-                sentencia.setString(26, txtInfatico.getText());
-                sentencia.setString(27, txtEndocrino.getText());
-                sentencia.setString(28, txtPielFaneras.getText());
-                ResultSet resultado = sentencia.executeQuery();
-
+                sentencia.setString(14, txtSistemaN.getText().toString());
+                sentencia.setString(15, txtCabeza.getText().toString());
+                sentencia.setString(16, txtOjos.getText().toString());
+                sentencia.setString(17, txtNariz.getText().toString());
+                sentencia.setString(18, txtBoca.getText().toString());
+                sentencia.setString(19, txtCuello.getText().toString());
+                sentencia.setString(20, txtRespiratorio.getText().toString());
+                sentencia.setString(21, txtCardioVascular.getText().toString());
+                sentencia.setString(22, txtDigestivo.getText().toString());
+                sentencia.setString(23, txtOsteo.getText().toString());
+                sentencia.setString(24, txtHemat.getText().toString());
+                sentencia.setString(25, txtGenitou.getText().toString());
+                sentencia.setString(26, txtInfatico.getText().toString());
+                sentencia.setString(27, txtEndocrino.getText().toString());
+                sentencia.setString(28, txtPielFaneras.getText().toString());
+                sentencia.execute();
+                mensaje("Datos guardados exitosamente");
+                btnCancelar();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
 
         }else{
-
+            mensaje("Campos Vacios");
         }
 
+    }
+
+    private void mensaje(String mensaje){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(null);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
 }
