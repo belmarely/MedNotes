@@ -31,7 +31,7 @@
    </rowConstraints>
    <children>
       <Label text="Registro de Cita" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="3" onAction="#abrir"/>
+      <Button fx:id="allan" mnemonicParsing="false" onAction="#ver" text="allan" GridPane.rowIndex="3" />
       <ImageView fitHeight="157.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <image>
             <Image url="@../img/logoMedNotes.jpg" />
