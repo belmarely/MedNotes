@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="292.0" prefWidth="572.0" styleClass="fondo" stylesheets="@../css/cssLogin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox id="vbox1" alignment="CENTER" layoutX="-9.0" prefHeight="326.0" prefWidth="173.0" styleClass="vbox1" stylesheets="@../css/cssLogin.css">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logoNe.png" />
+               </image>
+            </ImageView>
+            <Label text="Med Notes">
+               <font>
+                  <Font name="Ebrima Bold" size="18.0" />
+               </font></Label>
+            <Label text="Asistente Médico">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font></Label>
+         </children></VBox>
+      <TextField id="txtUsuario" layoutX="237.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Usuario" stylesheets="@../css/cssLogin.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField id="contraseña" layoutX="237.0" layoutY="194.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Contraseña" stylesheets="@../css/cssLogin.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button id="btnLogin" layoutX="238.0" layoutY="242.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Iniciar Sesión" />
+      <ImageView fitHeight="105.0" fitWidth="101.0" layoutX="312.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/iconoInicio.png" />
+         </image>
+      </ImageView>
+      <Label id="lblOlvido" layoutX="364.0" layoutY="285.0" stylesheets="@../css/cssLogin.css" text="¿Olvidó su contraseña?" />
+   </children>
+</AnchorPane>
