@@ -7,5 +7,6 @@ module enfermedadActual {
     requires javafx.web;
     requires javafx.controls;
     requires java.sql;
+    requires java.desktop;
     opens sample;
 }
