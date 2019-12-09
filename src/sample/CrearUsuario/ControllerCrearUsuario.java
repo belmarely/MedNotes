@@ -17,22 +17,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ControllerCrearUsuario {
+
     @FXML
     private TextField txtNombre;
+
     @FXML
     private TextArea txtApellid;
+
     @FXML
     private TextField txtPalabraClave;
+
     @FXML
     private Button btnCancelar;
+
     @FXML
     private Button btnCrear;
 
     public void btnCancelar() {
+
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
+
+
     public void BotonGuardarActualizar(ActionEvent actionEvent){
+
         if (MisFunciones.getIdUsuario()!=0) {
             Actualizar();
         } else {
@@ -40,7 +49,9 @@ public class ControllerCrearUsuario {
         }
     }
 
+
     private void Actualizar() {
+
         if (comprobarCamposVacios()) {
             Usuario crearUsuario = crearIntancia();
             Usuario.Actualizar(crearUsuario);
@@ -50,7 +61,10 @@ public class ControllerCrearUsuario {
         }else{
             mensaje("Campos Vacios");
         }
+
     }
+
+
 
     private boolean comprobarCamposVacios(){
 
@@ -58,9 +72,11 @@ public class ControllerCrearUsuario {
                 !txtApellid.getText().isBlank() &&
                 !txtPalabraClave.getText().isBlank()){
             return true;
+
         }
         return false;
     }
+
 
 
     public Usuario crearIntancia(){
@@ -68,9 +84,11 @@ public class ControllerCrearUsuario {
                 Usuario(txtNombre.getText(),txtApellid.getText(),
                 txtPalabraClave.getText());
         return crearUsuario;
+
     }
 
     public void Guardar() {
+
         if (comprobarCamposVacios()) {
             Usuario crearUsuario = crearIntancia();
             Usuario.Guardar(crearUsuario);
@@ -80,9 +98,12 @@ public class ControllerCrearUsuario {
         }else{
             mensaje("Campos Vacios");
         }
+
     }
 
+
     private void mensaje(String mensaje){
+
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(null);
         alert.setHeaderText(null);
