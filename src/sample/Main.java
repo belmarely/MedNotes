@@ -16,14 +16,27 @@ public class Main extends Application {
     @FXML
     private Button btnInicio;
 
+    @FXML
+    private Button btnCrearCuenta;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("InicioSesion/iniciarSesion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Med Notes");
         primaryStage.setScene(new Scene(root, 400, 475));
+
+
         primaryStage.show();
     }
 
+    public void handleClicks(ActionEvent actionEvent){
+        if (actionEvent.getSource() == btnInicio) {
+            btnInicio.setVisible(true);
+        }
+        if (actionEvent.getSource() == btnCrearCuenta) {
+            btnCrearCuenta.setVisible(true);
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

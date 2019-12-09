@@ -1,4 +1,4 @@
-package home;
+package sample.Home;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

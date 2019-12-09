@@ -27,13 +27,14 @@ public class Controller {
 
     @FXML
 
-    public void abrir(ActionEvent actionEvent) {
+    public void login(ActionEvent actionEvent) {
 
         try
         {
             Stage planillaStage=new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("iniciarSesion.fxml"));
+            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("InicioSesion/iniciarSesion.fxml"));
             Scene scene = new Scene(root,360,290);
+            planillaStage.setScene(scene);
             planillaStage.show();
         }
         catch(Exception e)
@@ -43,19 +44,5 @@ public class Controller {
 
     }
 
-    public void ExamenFisico(ActionEvent actionEvent) throws IOException {
-        try
-        {
-            Stage planillaStage =new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml"));
-            Scene scene = new Scene(root,1000,700);
-            planillaStage.setScene(scene);
-            planillaStage.show();
 
-        }
-        catch(Exception e)
-        {
-
-        }
-    }
 }
