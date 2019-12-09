@@ -22,7 +22,7 @@ public class ControllerCrearUsuario {
     @FXML
     private TextField txtNombre;
     @FXML
-    private TextArea txtApellido;
+    private TextArea txtApellid;
     @FXML
     private TextField txtPalabraClave;
     @FXML
@@ -65,7 +65,7 @@ public class ControllerCrearUsuario {
     private boolean comprobarCamposVacios(){
 
         if (!txtNombre.getText().isBlank() &&
-                !txtApellido.getText().isBlank() &&
+                !txtApellid.getText().isBlank() &&
                 !txtPalabraClave.getText().isBlank()){
             return true;
         }
@@ -76,7 +76,7 @@ public class ControllerCrearUsuario {
 
     public Usuario crearIntancia(){
         Usuario crearUsuario = new
-                Usuario(txtNombre.getText(),txtApellido.getText(),
+                Usuario(txtNombre.getText(),txtApellid.getText(),
                 txtPalabraClave.getText());
 
         return crearUsuario;
