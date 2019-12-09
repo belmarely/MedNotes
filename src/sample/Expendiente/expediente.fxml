@@ -50,7 +50,7 @@
       <Label id="lblHabitosToxicos" layoutX="67.0" layoutY="425.0" text="Hábitos Tóxicos:" />
       <ImageView fitHeight="42.0" fitWidth="54.0" layoutX="538.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/newL.png" />
+            <Image url="@../../newL.png" />
          </image>
       </ImageView>
       <CheckBox id="checkAlcoholismo" layoutX="69.0" layoutY="458.0" mnemonicParsing="false" text="Alcoholismo" />
@@ -59,7 +59,7 @@
       <Label id="lblOtros" layoutX="417.0" layoutY="458.0" text="____________________________" />
       <ImageView fitHeight="112.0" fitWidth="87.0" layoutX="48.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/imagen-de-usuario-con-fondo-negro.png" />
+            <Image url="@../../imagen-de-usuario-con-fondo-negro.png" />
          </image>
       </ImageView>
       <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Nacionalidad:" />

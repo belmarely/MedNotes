@@ -3,16 +3,18 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.modelos.FuncionesOrganicasGenerales;
+import sample.libs.Conexion;
 
-import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class Controller {
@@ -23,7 +25,7 @@ public class Controller {
     private TextField txtUsuario;
 
     @FXML
-    private PasswordField contraseña;
+    private PasswordField txtContraseña;
 
     @FXML
 
@@ -33,7 +35,7 @@ public class Controller {
         {
             Stage planillaStage=new Stage();
             AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("InicioSesion/iniciarSesion.fxml"));
-            Scene scene = new Scene(root,360,290);
+            Scene scene = new Scene(root,560,390);
             planillaStage.setScene(scene);
             planillaStage.show();
         }
@@ -41,7 +43,28 @@ public class Controller {
         {
             e.printStackTrace();
         }
+    }
 
+    public int validarUsuario(){
+         String usuario = txtUsuario.getText();
+         String contraseña = txtContraseña.getText();
+        int resultado=0;
+        try {
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM usuarios WHERE nombre_usuario = ? AND palabra_clave = ?;"
+            );
+            sentencia.setString(1, usuario);
+            sentencia.setString(2, contraseña);
+            ResultSet resultados = sentencia.executeQuery();
+
+            while (resultados.next()) {
+                resultado=1;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultado ;
     }
 
 

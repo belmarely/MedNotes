@@ -3,15 +3,9 @@ package sample.FuncionesOrganicaGenerales;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import sample.libs.Conexion;
 import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
-
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 
 public class ControllerFuncionesOrganicas {
