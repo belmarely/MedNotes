@@ -16,6 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class ControllerCrearUsuario {
     @FXML
     private TextField txtNombre;
@@ -28,10 +30,13 @@ public class ControllerCrearUsuario {
     @FXML
     private Button btnCrear;
 
+
     public void btnCancelar() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
+
+
     public void BotonGuardarActualizar(ActionEvent actionEvent){
         if (MisFunciones.getIdUsuario()!=0) {
             Actualizar();
@@ -40,17 +45,22 @@ public class ControllerCrearUsuario {
         }
     }
 
+
     private void Actualizar() {
+
         if (comprobarCamposVacios()) {
             Usuario crearUsuario = crearIntancia();
             Usuario.Actualizar(crearUsuario);
             mensaje("Datos Actualizados exitosamente");
+
             btnCancelar();
 
         }else{
             mensaje("Campos Vacios");
         }
+
     }
+
 
     private boolean comprobarCamposVacios(){
 
@@ -63,10 +73,12 @@ public class ControllerCrearUsuario {
     }
 
 
+
     public Usuario crearIntancia(){
         Usuario crearUsuario = new
                 Usuario(txtNombre.getText(),txtApellido.getText(),
                 txtPalabraClave.getText());
+
         return crearUsuario;
     }
 
@@ -81,6 +93,7 @@ public class ControllerCrearUsuario {
             mensaje("Campos Vacios");
         }
     }
+
 
     private void mensaje(String mensaje){
         Alert alert = new Alert(Alert.AlertType.WARNING);
