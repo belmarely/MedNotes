@@ -24,7 +24,7 @@
       <TextField id="txtSegundoApellido" layoutX="475.0" layoutY="136.0" prefHeight="25.0" prefWidth="98.0" />
       <Label id="lblIdentidad" layoutX="55.0" layoutY="180.0" text="Identidad:" />
       <TextField id="txtIdentidad" layoutX="152.0" layoutY="176.0" />
-      <Label id="lblSexo" layoutX="316.0" layoutY="180.0" text="Sexo:" />
+      <Label id="lblSexo" layoutX="348.0" layoutY="180.0" text="Sexo:" />
       <Label id="lblLugarNacimiento" layoutX="55.0" layoutY="215.0" text="Lugar de Nacimiento:" />
       <TextField id="txtLugarNacimiento" layoutX="180.0" layoutY="211.0" prefHeight="25.0" prefWidth="391.0" />
       <Label id="lblFechaNacimiento" layoutX="55.0" layoutY="248.0" text="Fecha de Nacimiento:" />
@@ -59,7 +59,7 @@
       <Label id="lblOtros" layoutX="417.0" layoutY="458.0" text="____________________________" />
       <ImageView fitHeight="112.0" fitWidth="87.0" layoutX="48.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imagen-de-usuario-con-fondo-negro.png" />
+            <Image url="@../../img/imagen-de-usuario-con-fondo-negro.png" />
          </image>
       </ImageView>
       <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Nacionalidad:" />

@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import sample.libs.Conexion;
 
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -25,7 +24,7 @@ public class Controller {
     private TextField txtUsuario;
 
     @FXML
-    private PasswordField txtContraseña;
+    private PasswordField txtPassword;
 
     @FXML
 
@@ -47,14 +46,14 @@ public class Controller {
 
     public int validarUsuario(){
          String usuario = txtUsuario.getText();
-         String contraseña = txtContraseña.getText();
+         String password = txtPassword.getText();
         int resultado=0;
         try {
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "SELECT * FROM usuarios WHERE nombre_usuario = ? AND palabra_clave = ?;"
             );
             sentencia.setString(1, usuario);
-            sentencia.setString(2, contraseña);
+            sentencia.setString(2, password);
             ResultSet resultados = sentencia.executeQuery();
 
             while (resultados.next()) {
@@ -66,6 +65,5 @@ public class Controller {
         }
         return resultado ;
     }
-
 
 }
