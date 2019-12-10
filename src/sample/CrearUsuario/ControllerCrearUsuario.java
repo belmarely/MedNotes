@@ -117,8 +117,16 @@ public class ControllerCrearUsuario {
     }
 
     public void Guardar() {
+        if (comprobarCamposVacios()) {
+            Usuario crearUser = crearIntancia();
+            Usuario.Guardar(crearUser);
+            mensaje("Datos guardados exitosamente");
+            btnCancelar();
 
-       comprobarCampos();
+        }else{
+            mensaje("Campos Vacios");
+        }
+
     }
 
 
