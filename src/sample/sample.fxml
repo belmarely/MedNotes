@@ -3,36 +3,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="339.0" prefWidth="394.0" styleClass="fondo" stylesheets="@css/cssLogin.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints maxWidth="173.0" minWidth="136.0" prefWidth="173.0" />
-      <ColumnConstraints maxWidth="37.0" minWidth="0.0" prefWidth="0.0" />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-      <RowConstraints maxHeight="88.0" minHeight="88.0" prefHeight="88.0" />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
+<AnchorPane prefHeight="392.0" prefWidth="572.0" style="-fx-background-color: #21C6B6;" styleClass="fondo" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fitHeight="138.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92cccd" height="369.0" layoutX="13.0" layoutY="12.0" stroke="#92cccd" strokeType="INSIDE" width="547.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="340.0" layoutX="28.0" layoutY="26.0" stroke="#d0cdcd" strokeType="INSIDE" width="517.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="189.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/logoMedicina.png" />
-         </image>
-      </ImageView>
-      <Button id="btnSesion" mnemonicParsing="false" onAction="#login" text="Iniciar Sesión" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-      <Button id="btnCrearCuenta" mnemonicParsing="false" onAction="#crearUsuario" text="Crear Cuenta" GridPane.rowIndex="9" />
+            <Image url="@../img/logomn2.png" />
+         </image></ImageView>
+      <Button layoutX="77.0" layoutY="283.0" mnemonicParsing="false" onAction="#crearUsuario" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Crear Usuario">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="243.0" layoutY="283.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Editar Usuario">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="398.0" layoutY="283.0" mnemonicParsing="false" onAction="#login" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Iniciar Sesión">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
-
-</GridPane>
+</AnchorPane>

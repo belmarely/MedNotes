@@ -10,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.modelos.Usuario;
 import sample.modelos.UsuarioIniciarSesion;
 
 
@@ -41,8 +40,6 @@ public class ControllerInicioSesion {
     public void comprobarCampos() {
         String usuario = txtNombre_Usuario.getText().toString();
         String contrasena = txtPalabraClave.getText().toString();
-        mensaje(usuario);
-        mensaje(contrasena);
         if (!txtNombre_Usuario.getText().isEmpty() &&
                 !txtPalabraClave.getText().isBlank()){
             if (UsuarioIniciarSesion.comprobandoUsario(usuario,contrasena)) {

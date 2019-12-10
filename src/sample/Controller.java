@@ -1,16 +1,15 @@
 package sample;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Controller {
+
+    private double x, y;
 
     public void login(ActionEvent actionEvent) {
 
@@ -18,8 +17,20 @@ public class Controller {
         {
             Stage planillaStage=new Stage();
             AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("InicioSesion/iniciarSesion.fxml"));
-            Scene scene = new Scene(root,560,390);
-            planillaStage.setScene(scene);
+            planillaStage.setScene(new Scene(root));
+            planillaStage.initStyle(StageStyle.UNDECORATED);
+
+            //drag it here
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+
+                planillaStage.setX(event.getScreenX() - x);
+                planillaStage.setY(event.getScreenY() - y);
+
+            });
             planillaStage.show();
         }
         catch(Exception e)
@@ -34,8 +45,20 @@ public class Controller {
         {
             Stage planillaStage=new Stage();
             AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("CrearUsuario/crearUsuario.fxml"));
-            Scene scene = new Scene(root,560,390);
-            planillaStage.setScene(scene);
+            planillaStage.setScene(new Scene(root));
+            planillaStage.initStyle(StageStyle.UNDECORATED);
+
+            //drag it here
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+
+                planillaStage.setX(event.getScreenX() - x);
+                planillaStage.setY(event.getScreenY() - y);
+
+            });
             planillaStage.show();
         }
         catch(Exception e)
