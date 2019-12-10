@@ -62,7 +62,7 @@
             <Image url="@../../img/imagen-de-usuario-con-fondo-negro.png" />
          </image>
       </ImageView>
-      <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Nacionalidad:" />
+      <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Dirección" />
       <Label id="lblAntecedentes" contentDisplay="CENTER" layoutX="231.0" layoutY="500.0" prefHeight="17.0" prefWidth="149.0" text="Patológicos" underline="true">
          <font>
             <Font name="System Bold" size="12.0" />
