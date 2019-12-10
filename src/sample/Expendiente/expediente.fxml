@@ -84,7 +84,7 @@
             </image>
         </ImageView>
 
-        <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Nacionalidad:" />
+        <Label id="lblDireccion" layoutX="260.0" layoutY="281.0" text="Direccion:" />
 
         <Label id="lblAntecedentes" contentDisplay="CENTER" layoutX="231.0" layoutY="500.0" prefHeight="17.0" prefWidth="149.0" text="Patológicos" underline="true">
             <font>
@@ -101,7 +101,7 @@
         <Label id="lblTraumas" layoutX="58.0" layoutY="606.0" text="Traumas:" />
         <TextField fx:id="txtTraumas" layoutX="118.0" layoutY="602.0" prefHeight="25.0" prefWidth="456.0" />
 
-        <Button fx:id="btnGuardar" layoutX="459.0" layoutY="655.0" mnemonicParsing="false" text="Guardar" />
+        <Button fx:id="btnGuardar" layoutX="459.0" layoutY="655.0" mnemonicParsing="false" text="Guardar" onAction="#BotonGuardarActualizar" />
 
 
         <ComboBox fx:id="sex" layoutX="414.0" layoutY="176.0" prefWidth="150.0">
@@ -126,7 +126,7 @@
             </items>
         </ComboBox>
 
-        <Button fx:id="btnCancelar" layoutX="538.0" layoutY="655.0" mnemonicParsing="false" text="Button" onAction="#cerrar" />
+        <Button fx:id="btnCancelar" layoutX="538.0" layoutY="655.0" mnemonicParsing="false" onAction="#cerrar" text="Button" />
 
 
     </children>
