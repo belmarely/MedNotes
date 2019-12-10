@@ -311,6 +311,8 @@ public class ControllerFuncionesOrganicas {
                 txtSintomaPrin.getText(),txtGenitou.getText(),
                 txtInfatico.getText(),txtEndocrino.getText()
         );
+        String id_paciente = String.valueOf(MisFunciones.getIdPaciente());
+        examenFisico.setId_paciente(id_paciente);
         return examenFisico;
     }
 
@@ -320,6 +322,7 @@ public class ControllerFuncionesOrganicas {
             FuncionesOrganicasGenerales examenFisico = crearIntancia();
                 FuncionesOrganicasGenerales.Guardar(examenFisico);
                     mensaje("Datos guardados exitosamente");
+                    MisFunciones.setIdExamenFisico(0);
                     btnCancelar();
 
         }else{

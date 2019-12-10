@@ -2,7 +2,7 @@ package sample.modelos;
 
 public class MisFunciones {
     private static int idUsuario;
-    private static int idPaciente = 1 ;
+    private static int idPaciente;
     private static int idExamenFisico ;
 
     public static int getIdExamenFisico() {
@@ -10,6 +10,7 @@ public class MisFunciones {
     }
 
     public static void setIdExamenFisico(int idExamenFisico) {
+
         MisFunciones.idExamenFisico = idExamenFisico;
     }
 
@@ -18,7 +19,7 @@ public class MisFunciones {
     }
 
     public static void setIdUsuario(int idUsuario) {
-        idUsuario = idUsuario;
+        MisFunciones.idUsuario = idUsuario;
     }
 
     public static int getIdPaciente() {
@@ -26,6 +27,6 @@ public class MisFunciones {
     }
 
     public static void setIdPaciente(int idPaciente) {
-        idPaciente = idPaciente;
+        MisFunciones.idPaciente = idPaciente;
     }
 }
