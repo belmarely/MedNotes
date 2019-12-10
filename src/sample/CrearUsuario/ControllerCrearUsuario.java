@@ -25,7 +25,13 @@ public class ControllerCrearUsuario {
     private TextArea txtApellid;
 
     @FXML
+    private TextArea txtCorreo;
+
+    @FXML
     private TextField txtPalabraClave;
+
+    @FXML
+    private TextField txtConfirmarPalabraClave;
 
     @FXML
     private Button btnCancelar;
@@ -64,15 +70,36 @@ public class ControllerCrearUsuario {
 
     }
 
+    private void comprobarCampos(){
+
+        String confirmarPalabraClave = txtConfirmarPalabraClave.getText();
+        if (!txtNombre.getText().isEmpty() &&
+                !txtApellid.getText().isEmpty() &&
+                !txtCorreo.getText().isEmpty() &&
+                !txtPalabraClave.getText().isBlank()){
+            if (txtPalabraClave.getText().equals(confirmarPalabraClave)) {
+                mensaje("Se creo un nuevo usuario con Éxito");
+
+            } else {
+                mensaje("La Contraseña no son iguales");
+            }
+        }else{
+            mensaje("Usario y/o contraseña vacios");
+        }
+    }
+
+
 
 
     private boolean comprobarCamposVacios(){
 
-        if (!txtNombre.getText().isBlank() &&
-                !txtApellid.getText().isBlank() &&
-                !txtPalabraClave.getText().isBlank()){
+        if (!txtNombre.getText().isEmpty() &&
+                !txtApellid.getText().isEmpty() &&
+                !txtCorreo.getText().isBlank() &&
+                !txtPalabraClave.getText().isBlank() &&
+                !txtConfirmarPalabraClave.getText().isBlank())
+        {
             return true;
-
         }
         return false;
     }
@@ -82,6 +109,7 @@ public class ControllerCrearUsuario {
     public Usuario crearIntancia(){
         Usuario crearUsuario = new
                 Usuario(txtNombre.getText(),txtApellid.getText(),
+                txtCorreo.getText(),
                 txtPalabraClave.getText());
         return crearUsuario;
 
@@ -89,16 +117,7 @@ public class ControllerCrearUsuario {
 
     public void Guardar() {
 
-        if (comprobarCamposVacios()) {
-            Usuario crearUsuario = crearIntancia();
-            Usuario.Guardar(crearUsuario);
-            mensaje("Datos guardados exitosamente");
-            btnCancelar();
-
-        }else{
-            mensaje("Campos Vacios");
-        }
-
+       comprobarCampos();
     }
 
 

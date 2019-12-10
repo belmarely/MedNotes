@@ -16,7 +16,7 @@ public class Conexion {
 
             try {
 
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mednotes?useTimezone=true&serverTimezone=UTC", "root", "12345678");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mednotes?useTimezone=true&serverTimezone=UTC", "root", "");
 
             } catch (SQLException e) {
                 System.err.println(e.getMessage());
