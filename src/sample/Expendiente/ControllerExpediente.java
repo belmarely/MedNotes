@@ -9,10 +9,11 @@ import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
 
 public class ControllerExpediente {
-    private String alcoholismo = "";
-    private String tabaquismo = "";
-    private String otraDroga = "";
 
+    private String alcoholismo = "";//capturarValorAlcoholismo();
+    private String tabaquismo =""; //capturarValorTabaquismo();
+    private String otraDroga = "";//capturarValorOtraDroga();
+private String sexo ="M";
     @FXML
     private TextField txtNombre;
 
@@ -104,6 +105,33 @@ public class ControllerExpediente {
 
     }
 
+    private String capturarValorAlcoholismo(){
+        if (checkAlcoholismo.isSelected()){
+            alcoholismo = "Si";
+        }else {
+            alcoholismo = "No";
+        }
+        return alcoholismo;
+    }
+
+    private String capturarValorTabaquismo(){
+        if (chechTabaquismo.isSelected()){
+            tabaquismo = "Si";
+        }else {
+            tabaquismo = "No";
+        }
+        return tabaquismo;
+    }
+
+    private String capturarValorOtraDroga(){
+        if (checkOtraDroga.isSelected()){
+            otraDroga = "Si";
+        }else {
+            otraDroga = "No";
+        }
+        return otraDroga;
+    }
+
 
     private boolean comprobarCamposVacios(){
 
@@ -118,11 +146,11 @@ public class ControllerExpediente {
                 !txtTraumas.getText().isBlank() &&
                 !direccion.getText().isBlank() &&
                 !edad.getText().isBlank() &&
-                !seguridadSocial.getText().isBlank() &&
-                !checkAlcoholismo.getText().isBlank() &&
-                !chechTabaquismo.getText().isBlank() &&
-                !checkOtraDroga.getText().isBlank()){
-
+                !seguridadSocial.getText().isBlank()) //&&
+                //!checkAlcoholismo.isSelected() &&
+                //!chechTabaquismo.isSelected() &&
+                //!checkOtraDroga.isSelected()){
+        {
             return true;
         }
         return false;
@@ -136,11 +164,13 @@ public class ControllerExpediente {
 
         Expendiente expedienteInstancia = new
                 Expendiente(
-                txtNombre.getText(),txtApellido.getText(),telefono.getText(),txtIdentidad.getText(),sex.getSelectionModel().toString(),
-                edad.getLength(),txtLugarNacimiento.getText(),
+                txtNombre.getText(),txtApellido.getText(),telefono.getText(),txtIdentidad.getText(),sexo,
+                edad.getText(),txtLugarNacimiento.getText(),
                 txtFechaNacimiento.getText(), direccion.getText(),
                 seguridadSocial.getText(),nacionalidad.getVisibleRowCount(),
-                sangre.getSelectionModel().toString());
+                sangre.getAccessibleHelp(),tabaquismo,alcoholismo,otraDroga,
+                txtHospitalarios.getText(),txtAlergias.getText(), txtTraumas.getText());
+
         return expedienteInstancia;
 
     }
@@ -173,9 +203,10 @@ public class ControllerExpediente {
 
 
     public void cerrar(ActionEvent actionEvent) {
+
+
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
-
 
 
     }

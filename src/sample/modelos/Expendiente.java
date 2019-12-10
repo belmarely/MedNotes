@@ -13,25 +13,31 @@ public class Expendiente {
     private String telefono;
     private String identidad;
     private String sexo;
-    private int edad ;
+    private String edad ;
     private String lugarNacimiento;
     private String fechaNacimiento;
     private String direccion;
     private String seguridadSocial;
     private int nacionalidad;
     private String sangre;
-    private int antecedentes;
+    private String tabaquismo;
+    private String alcoholismo;
+    private String otraDroga;
+    private String hospitalarios;
+    private String alergicos;
+    private String traumaticos;
     private Date creacion;
 
     public static boolean Guardar(Expendiente expediente){
 
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "INSERT INTO `registro_medico`.`expedientes` (`nombres`" +
-                            ", `apellidos`, `telefono`, `identidad`, `sexo`, `edad`, " +
+                    "INSERT INTO `registro_medico`.`expedientes` " +
+                            "(`nombres`, `apellidos`, `telefono`, `identidad`, `sexo`, `edad`, " +
                             " `lugar_de_nacimmiento`, `fecha_de_nacimiento`, " +
                             " `direccion`, `seguridad_social`, `nacionalidad`, `tipo_de_sangre` " +
-                            ", `antecedentes_familiares`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+                            ", `tabaquismo` , `alcoholismo` , `otras_drogas` , `antecedentes_hospitalarios` " +
+                            ", `antecedentes_alergicos` , `antecedentes_traumaticos`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
             );
 
             sentencia = expediente.seteandoSentenciaPreparada(expediente,sentencia);
@@ -57,7 +63,9 @@ public class Expendiente {
                             ", `apellidos=?`, `telefono=?`, `identidad=?`, `sexo=?`, `edad=?`, " +
                             " `lugar_de_nacimmiento=?`, `fecha_de_nacimiento=?`, " +
                             " `direccion=?`, `seguridad_social=?`, `nacionalidad=?`, `tipo_de_sangre=?` " +
-                            ", `antecedentes_familiares=? " +
+                            ", `tabaquismo=? , `alcoholismo=?` , `otras_drogas=?`" +
+                            ", `antecedentes_hospitalarios=?` , `antecedentes_alergicos=? " +
+                            ", `antecedentes_traumaticos=?" +
                             " WHERE (`id_expediente` = ?);"
             );
 
@@ -90,14 +98,19 @@ public class Expendiente {
             sentencia.setString(3,getTelefono());
             sentencia.setString(4,getIdentidad());
             sentencia.setString(5, getSexo());
-            sentencia.setInt(6, getEdad());
+            sentencia.setString(6, getEdad());
             sentencia.setString(7, getLugarNacimiento());
             sentencia.setString(8, getFechaNacimiento());
             sentencia.setString(9, getDireccion());
             sentencia.setString(10, getSeguridadSocial());
             sentencia.setInt(11, getNacionalidad());
             sentencia.setString(12, getSangre());
-            sentencia.setInt(13,getAntecedentes());
+            sentencia.setString(13,getTabaquismo());
+            sentencia.setString(14,getAlcoholismo());
+            sentencia.setString(15,getOtraDroga());
+            sentencia.setString(16,getHospitalarios());
+            sentencia.setString(17,getAlergicos());
+            sentencia.setString(18,getTraumaticos());
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -141,14 +154,19 @@ public class Expendiente {
                     resultado.getString("telefono"),
                     resultado.getString("identidad"),
                     resultado.getString("sexo"),
-                    resultado.getInt("edad"),
+                    resultado.getString("edad"),
                     resultado.getString("lugar_de_nacimiento"),
                     resultado.getString("fecha_de_nacimiento"),
                     resultado.getString("direccion"),
                     resultado.getString("seguridad_social"),
                     resultado.getInt("nacionalidad"),
-                    resultado.getString("tipo_sangre")
-                    //resultado.getInt("antecedentes_familiares")
+                    resultado.getString("tipo_sangre"),
+                    resultado.getString("tabaquismo"),
+                    resultado.getString("alcoholismo"),
+                    resultado.getString("otras_drogas"),
+                    resultado.getString("antecendetes_hospitalarios"),
+                    resultado.getString("antecendetes_alergicos"),
+                    resultado.getString("antecendetes_traumaticos")
             );
             expendienteInstancia.creacion = resultado.getDate("creacion");
 
@@ -159,7 +177,7 @@ public class Expendiente {
         return expendienteInstancia;
     }
 
-    public Expendiente(String nombres, String apellidos, String telefono, String identidad, String sexo, int edad, String lugarNacimiento, String fechaNacimiento, String direccion, String seguridadSocial, int nacionalidad, String sangre) {
+    public Expendiente(String nombres, String apellidos, String telefono, String identidad, String sexo, String edad, String lugarNacimiento, String fechaNacimiento, String direccion, String seguridadSocial, int nacionalidad, String sangre, String tabaquismo, String alcoholismo, String otraDroga, String hospitalarios, String alergicos, String traumaticos) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.telefono = telefono;
@@ -172,7 +190,12 @@ public class Expendiente {
         this.seguridadSocial = seguridadSocial;
         this.nacionalidad = nacionalidad;
         this.sangre = sangre;
-        //this.antecedentes = antecedentes;
+        this.tabaquismo = tabaquismo;
+        this.alcoholismo = alcoholismo;
+        this.otraDroga = otraDroga;
+        this.hospitalarios = hospitalarios;
+        this.alergicos = alergicos;
+        this.traumaticos = traumaticos;
     }
 
     public String getNombres() {
@@ -207,11 +230,11 @@ public class Expendiente {
         this.sexo = sexo;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -263,13 +286,6 @@ public class Expendiente {
         this.sangre = sangre;
     }
 
-    public int getAntecedentes() {
-        return antecedentes;
-    }
-
-    public void setAntecedentes(int antecedentes) {
-        this.antecedentes = antecedentes;
-    }
 
     public String getTelefono() {
         return telefono;
@@ -277,5 +293,53 @@ public class Expendiente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getTabaquismo() {
+        return tabaquismo;
+    }
+
+    public void setTabaquismo(String tabaquismo) {
+        this.tabaquismo = tabaquismo;
+    }
+
+    public String getAlcoholismo() {
+        return alcoholismo;
+    }
+
+    public void setAlcoholismo(String alcoholismo) {
+        this.alcoholismo = alcoholismo;
+    }
+
+    public String getOtraDroga() {
+        return otraDroga;
+    }
+
+    public void setOtraDroga(String otraDroga) {
+        this.otraDroga = otraDroga;
+    }
+
+    public String getHospitalarios() {
+        return hospitalarios;
+    }
+
+    public void setHospitalarios(String hospitalarios) {
+        this.hospitalarios = hospitalarios;
+    }
+
+    public String getAlergicos() {
+        return alergicos;
+    }
+
+    public void setAlergicos(String alergicos) {
+        this.alergicos = alergicos;
+    }
+
+    public String getTraumaticos() {
+        return traumaticos;
+    }
+
+    public void setTraumaticos(String traumaticos) {
+        this.traumaticos = traumaticos;
     }
 }

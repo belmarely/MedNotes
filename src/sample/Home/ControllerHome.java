@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.event.MouseEvent;
+
 public class ControllerHome extends Application {
     private double x, y;
 
@@ -30,6 +32,10 @@ public class ControllerHome extends Application {
         });
         primaryStage.show();
     }
+    public void onOcultarMenuClicked(MouseEvent event) {
+
+    }
+
 
 
     public static void main(String[] args) {
