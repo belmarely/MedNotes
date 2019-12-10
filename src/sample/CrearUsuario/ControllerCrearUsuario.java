@@ -22,13 +22,13 @@ public class ControllerCrearUsuario {
     private TextField txtNombre;
 
     @FXML
-    private TextArea txtApellid;
+    private TextField txtApellido;
 
     @FXML
-    private TextArea txtCorreo;
+    private TextField txtCorreo;
 
     @FXML
-    private TextField txtPalabraClave;
+    private TextField txtClave;
 
     @FXML
     private TextField txtConfirmarPalabraClave;
@@ -73,15 +73,16 @@ public class ControllerCrearUsuario {
     private void comprobarCampos(){
 
         String confirmarPalabraClave = txtConfirmarPalabraClave.getText();
-        if (!txtNombre.getText().isEmpty() &&
-                !txtApellid.getText().isEmpty() &&
-                !txtCorreo.getText().isEmpty() &&
-                !txtPalabraClave.getText().isBlank()){
-            if (txtPalabraClave.getText().equals(confirmarPalabraClave)) {
+        if (!txtNombre.getText().isBlank() &&
+                !txtApellido.getText().isBlank() &&
+                !txtCorreo.getText().isBlank() &&
+                !txtClave.getText().isBlank()){
+
+            if (txtClave.getText().equals(confirmarPalabraClave)) {
                 mensaje("Se creo un nuevo usuario con Éxito");
 
             } else {
-                mensaje("La Contraseña no son iguales");
+                mensaje("Las Contraseñas no son iguales");
             }
         }else{
             mensaje("Usario y/o contraseña vacios");
@@ -94,9 +95,9 @@ public class ControllerCrearUsuario {
     private boolean comprobarCamposVacios(){
 
         if (!txtNombre.getText().isEmpty() &&
-                !txtApellid.getText().isEmpty() &&
+                !txtApellido.getText().isEmpty() &&
                 !txtCorreo.getText().isBlank() &&
-                !txtPalabraClave.getText().isBlank() &&
+                !txtClave.getText().isBlank() &&
                 !txtConfirmarPalabraClave.getText().isBlank())
         {
             return true;
@@ -108,9 +109,9 @@ public class ControllerCrearUsuario {
 
     public Usuario crearIntancia(){
         Usuario crearUsuario = new
-                Usuario(txtNombre.getText(),txtApellid.getText(),
+                Usuario(txtNombre.getText(),txtApellido.getText(),
                 txtCorreo.getText(),
-                txtPalabraClave.getText());
+                txtClave.getText());
         return crearUsuario;
 
     }

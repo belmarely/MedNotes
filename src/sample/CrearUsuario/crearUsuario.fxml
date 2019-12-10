@@ -31,14 +31,14 @@
       <Label id="lblNombre" layoutX="217.0" layoutY="69.0" text="Nombre" />
       <TextField id="txtNombre" fx:id="txtNombre" layoutX="277.0" layoutY="65.0" prefHeight="25.0" prefWidth="226.0" />
       <Label id="lblApellido" layoutX="217.0" layoutY="105.0" text="Apellido:" />
-      <TextField id="txtApellido" fx:id="txtApellido" layoutX="277.0" layoutY="101.0" prefHeight="25.0" prefWidth="226.0" />
       <Label id="lblpassword" layoutX="217.0" layoutY="144.0" text="Correo Electrónico:" />
-      <TextField id="txtpassword" fx:id="txtPalabraClave" layoutX="321.0" layoutY="140.0" prefHeight="25.0" prefWidth="182.0" />
       <Button id="btntCancelar" fx:id="btnCancelar" layoutX="446.0" layoutY="274.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Cancelar" />
       <Label id="lblpassword" layoutX="217.0" layoutY="179.0" text="Contraseña: " />
       <Label id="lblpassword" layoutX="217.0" layoutY="213.0" text="Confirmar Contraseña: " />
       <Label layoutX="292.0" layoutY="240.0" prefHeight="17.0" prefWidth="211.0" text="Label" />
-      <PasswordField layoutX="286.0" layoutY="175.0" prefHeight="25.0" prefWidth="218.0" />
+      <PasswordField fx:id="txtClave" layoutX="286.0" layoutY="175.0" prefHeight="25.0" prefWidth="218.0" />
       <PasswordField fx:id="txtConfirmarPalabraClave" layoutX="345.0" layoutY="209.0" prefHeight="25.0" prefWidth="158.0" />
+      <TextField fx:id="txtCorreo" layoutX="320.0" layoutY="140.0" prefHeight="25.0" prefWidth="226.0" />
+      <TextField fx:id="txtApellido" layoutX="277.0" layoutY="101.0" prefHeight="25.0" prefWidth="226.0" />
     </children>
 </AnchorPane>
