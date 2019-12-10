@@ -12,6 +12,7 @@ public class Usuario {
 
     private String nombre;
     private String apellido;
+    private String correo_electronico;
     private String nombre_usuario;
     private String clave;
     private Date creacion;
@@ -20,8 +21,8 @@ public class Usuario {
 
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "INSERT INTO `registro_medico`.`usuarios` (`nombre_usuario`" +
-                            ", `palabra_clave`) VALUES (?, ?);"
+                    "INSERT INTO `mednotes`.`usuarios` (`nombre`, `apellido`, `correo_electronico`,`nombre_usuario`, `palabra_clave`) \n" +
+                            "VALUES (?, ?, ?, ?,?);"
             );
 
             sentencia = crearUsuario.seteandoSentenciaPreparada(crearUsuario,sentencia);
@@ -42,9 +43,8 @@ public class Usuario {
 
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "UPDATE `registro_medico`.`usuarios` \n" +
-                            "SET `nombre_usuario = ?, `palabra_clave` = ? \n" +
-                            " WHERE (`id_usuario` = ?);"
+                    "UPDATE `mednotes`.`usuarios` Set `nombre`= ?, `apellido`= ?, `correo_electronico`= ?, nombre_usuario = ?, `palabra_clave` = ?\n" +
+                            "WHERE (`id_usuario` = 1);"
             );
 
             sentencia = actualizar.seteandoSentenciaPreparada(actualizar,sentencia);
@@ -112,6 +112,7 @@ public class Usuario {
         try {
             usuario = new Usuario(resultado.getString("nombre"),
                     resultado.getString("apellido"),
+                    resultado.getString("correo_electronico"),
                     resultado.getString("palabra_clave"));
             usuario.creacion = resultado.getDate("creacion");
             usuario.nombre_usuario = resultado.getString("nombre_usuario");
@@ -125,10 +126,11 @@ public class Usuario {
 
 
 
-    public Usuario(String nombre, String apellido, String clave) {
+    public Usuario(String nombre, String apellido, String correo_electronico, String clave) {
 
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo_electronico = correo_electronico;
         this.clave = clave;
 
     }
@@ -152,7 +154,13 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public String getCorreo_electronico() {
+        return correo_electronico;
+    }
 
+    public void setCorreo_electronico(String correo_electronico) {
+        this.correo_electronico = correo_electronico;
+    }
     public String getNombre_usuario() {
 
         if (this.nombre_usuario == null) {

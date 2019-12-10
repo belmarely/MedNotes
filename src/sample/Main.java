@@ -24,7 +24,7 @@ public class Main extends Application {
         primaryStage.setTitle("Med Notes");
         primaryStage.setScene(new Scene(root));
         //set stage borderless
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+      //  primaryStage.initStyle(StageStyle.UNDECORATED);
 
         //drag it here
         root.setOnMousePressed(event -> {

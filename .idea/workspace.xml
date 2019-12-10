@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/EditarUsuario/ControllerEditarUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/EditarUsuario/editarUsuario.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MedNotes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MedNotes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CrearUsuario/ControllerCrearUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CrearUsuario/ControllerCrearUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/CrearUsuario/crearUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CrearUsuario/crearUsuario.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/InicioSesion/ControllerInicioSesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/InicioSesion/ControllerInicioSesion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/modelos/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/modelos/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +76,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -275,7 +274,7 @@
       <workItem from="1575922723830" duration="13379000" />
       <workItem from="1575841373912" duration="14519000" />
       <workItem from="1575931080008" duration="4517000" />
-      <workItem from="1575940494337" duration="7826000" />
+      <workItem from="1575940494337" duration="13499000" />
     </task>
     <servers />
   </component>
@@ -303,10 +302,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="69" key="#com.intellij.ide.macro.MacrosDialog/0.0.1366.728@0.0.1366.728" timestamp="1575842153799" />
-    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1575926587500">
+    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1575953513265">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1575926587500" />
+    <state x="488" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1575953513265" />
     <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1575618438971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -323,22 +322,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="560" y="257" width="260" height="214" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1575687162229" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1575950917380">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1575957109688">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575950917380" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1575950917378">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575957109688" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1575957109687">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575950917378" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1575950917369">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575957109687" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1575957109687">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575950917369" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1575950917379">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575957109687" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1575957109688">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575950917379" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575957109688" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1575937221951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
