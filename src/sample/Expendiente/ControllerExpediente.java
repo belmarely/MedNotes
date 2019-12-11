@@ -13,7 +13,8 @@ public class ControllerExpediente {
     private String alcoholismo = "";//capturarValorAlcoholismo();
     private String tabaquismo =""; //capturarValorTabaquismo();
     private String otraDroga = "";//capturarValorOtraDroga();
-private String sexo ="M";
+
+    private String sexo ="M";
     @FXML
     private TextField txtNombre;
 

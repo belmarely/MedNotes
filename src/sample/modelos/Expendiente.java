@@ -34,7 +34,7 @@ public class Expendiente {
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "INSERT INTO `registro_medico`.`expedientes` " +
                             "(`nombres`, `apellidos`, `telefono`, `identidad`, `sexo`, `edad`, " +
-                            " `lugar_de_nacimmiento`, `fecha_de_nacimiento`, " +
+                            " `lugar_de_nacimiento`, `fecha_de_nacimiento`, " +
                             " `direccion`, `seguridad_social`, `nacionalidad`, `tipo_de_sangre` " +
                             ", `tabaquismo` , `alcoholismo` , `otras_drogas` , `antecedentes_hospitalarios` " +
                             ", `antecedentes_alergicos` , `antecedentes_traumaticos`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
