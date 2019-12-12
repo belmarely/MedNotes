@@ -106,8 +106,13 @@ public class ControladorGestionCitas implements Initializable {
     }
 
     public void obtenerIdCita(MouseEvent mouseEvent) {
+        try {
         id_cita = tableViewCita.getSelectionModel().getSelectedItem().getId_citas();
         MisFunciones.setId_citas(id_cita);
+        }catch (NullPointerException e){
+            mensaje("Seleccione un campo, no seleccione campos vacios");
+        }
+
     }
 
     public void abrirFormulario() throws IOException {

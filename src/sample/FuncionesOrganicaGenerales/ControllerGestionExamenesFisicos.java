@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
+import sample.modelos.RegistroCitas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,12 +54,13 @@ public class ControllerGestionExamenesFisicos implements Initializable {
     @FXML
     private TextField txtCampoBusqueda;
 
-
+    private String dato;
     //endregion
 
     //region Variable Locales
     private ObservableList<FuncionesOrganicasGenerales> listaExamen;
-
+    @FXML
+    private TextField busqueda;
     //endregion
 
     //  @FXML
@@ -75,11 +77,11 @@ public class ControllerGestionExamenesFisicos implements Initializable {
 
 
     /**Busqueda parcial del usuario ingresado */
-    public void onBuscarCampoUsuarioKeyTyped(KeyEvent event) {
-        //listaExamen = FXCollections.observableArrayList();
-        //Usuario.datosDeUsuarioBuscado(listaExamen, txtCampoBusqueda.getText().trim());
-        //tableViewEmpleado.setItems(listaExamen);
-        //columnasTableViewUsuarios();
+    public void buscarPorNombreOIdentidadoApellido(){
+        listaExamen = FXCollections.observableArrayList();
+        listaExamen = FuncionesOrganicasGenerales.busquedaPorNombreApellidouIdentidad(listaExamen,dato);
+        tableViewExamen.setItems(listaExamen);
+        columnasTableViewUsuarios();
     }
 
     private void columnasTableViewUsuarios() {
@@ -96,6 +98,13 @@ public class ControllerGestionExamenesFisicos implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         actualizarTableViewExamen();
+        busqueda.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                dato= busqueda.getText();
+                buscarPorNombreOIdentidadoApellido();
+            }
+        });
 
     }
 

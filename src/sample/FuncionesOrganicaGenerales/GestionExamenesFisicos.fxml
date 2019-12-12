@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FuncionesOrganicaGenerales.ControllerGestionExamenesFisicos">
@@ -21,6 +22,7 @@
                                 <TableColumn fx:id="colcreacion" prefWidth="75.0" text="Creacion" />
                             </columns>
                         </TableView>
+                        <TextField fx:id="busqueda" layoutX="20" layoutY="250" />
                     </children>
 
                 </AnchorPane>
@@ -28,5 +30,6 @@
         </ScrollPane>
         <Button layoutX="388.0" layoutY="50.0" mnemonicParsing="false" onAction="#abrirFormularioNuevo" text="Nuevo" />
         <Button layoutX="388.0" layoutY="80.0" mnemonicParsing="false" onAction="#abrirFormularioEditar" text="Editar" />
+
     </children>
 </AnchorPane>

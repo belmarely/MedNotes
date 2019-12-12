@@ -44,6 +44,29 @@ public class RegistroCitas {
         return listaCitas;
     }
 
+    public static boolean comprobarValidezDeCita(String fecha, String hora){
+        PreparedStatement sentencia = null;
+        try {
+            sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT count(*) FROM citas where " +
+                            "dia = ? and hora = ?;");
+            sentencia.setString(1,fecha);
+            sentencia.setString(2,hora);
+            ResultSet resultado= sentencia.executeQuery();
+            int contador = 0;
+            while (resultado.next()) {
+                 contador= resultado.getInt("count(*)");
+            }
+            if (contador>0) {
+                return true;
+            }
+        }catch (SQLException e){
+            System.out.println("error:" + e.getMessage());
+        }
+        return false;
+    }
+
+
     public static ObservableList<RegistroCitas> buscarIDYNombre(ObservableList<RegistroCitas> listaCitas, String dato) {
         PreparedStatement sentencia = null;
         try {

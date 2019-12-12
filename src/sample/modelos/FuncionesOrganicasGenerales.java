@@ -295,6 +295,31 @@ public class FuncionesOrganicasGenerales {
         return lista;
     }
 
+    public static ObservableList<FuncionesOrganicasGenerales> busquedaPorNombreApellidouIdentidad(ObservableList<FuncionesOrganicasGenerales> lista, String dato){
+        PreparedStatement sentencia = null;
+        try {
+            sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM examenes_fisicos " +
+                            "inner join expedientes on expedientes.id_expediente=" +
+                            "examenes_fisicos.id_paciente where " +
+                            "expedientes.identidad like ? " +
+                            "or expedientes.nombres like ? or expedientes.apellidos like ?;"
+            );
+            sentencia.setString(1,dato + "%");
+            sentencia.setString(2,dato + "%");
+            sentencia.setString(3,dato + "%");
+            ResultSet resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                lista.add(FuncionesOrganicasGenerales.crearInstancia(resultado));
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return lista;
+    }
+
     public String getApetito() {
         return apetito;
     }
