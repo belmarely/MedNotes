@@ -1,5 +1,7 @@
 package sample.FuncionesOrganicaGenerales;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -88,9 +90,13 @@ public class ControllerGestionExamenesFisicos implements Initializable {
         colcreacion.setCellValueFactory(new PropertyValueFactory<>("creacionExamen"));
     }
 
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         actualizarTableViewExamen();
+
     }
 
     public void obtenerIdExamen(MouseEvent mouseEvent) {

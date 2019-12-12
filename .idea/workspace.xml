@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/GestionExamenesFisicos.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MedNotes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MedNotes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerFuncionesOrganicas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerFuncionesOrganicas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/funcionesOrganicasGenerales.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/RegistroCita/ControllerRegistroCita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RegistroCita/ControllerRegistroCita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/RegistroCita/registroCita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RegistroCita/registroCita.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/libs/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/libs/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/modelos/Expendiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/modelos/Expendiente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/modelos/FuncionesOrganicasGenerales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/modelos/FuncionesOrganicasGenerales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/modelos/MisFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/modelos/MisFunciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/modelos/RegistroCitas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/modelos/RegistroCitas.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/registroCita.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
@@ -130,15 +116,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+            <state relative-caret-position="97">
+              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-                <element signature="e#1291#1292#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,12 +131,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+            <state relative-caret-position="206">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3181#3182#0" expanded="true" />
-                <element signature="e#3224#3225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,8 +157,8 @@
         <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="14" column="95" lean-forward="true" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
+            <state relative-caret-position="375">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -325,14 +307,14 @@
         <option value="$PROJECT_DIR$/src/sample/modelos/LocalDateClase.java" />
         <option value="$PROJECT_DIR$/src/sample/libs/Conexion.java" />
         <option value="$PROJECT_DIR$/src/sample/modelos/Expendiente.java" />
-        <option value="$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/modelos/MisFunciones.java" />
-        <option value="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java" />
         <option value="$PROJECT_DIR$/src/sample/RegistroCita/ControllerRegistroCita.java" />
         <option value="$PROJECT_DIR$/src/sample/modelos/RegistroCitas.java" />
-        <option value="$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java" />
         <option value="$PROJECT_DIR$/src/sample/RegistroCita/registroCita.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java" />
+        <option value="$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java" />
       </list>
     </option>
   </component>
@@ -609,10 +591,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3159091" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3159091" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -621,7 +603,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.905303" visible="true" weight="0.049261082" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.905303" visible="true" weight="0.049261082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -948,43 +930,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="14" column="95" lean-forward="true" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
           <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/ControllerRegistroCita.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5605#5606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1014,23 +965,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/registroCita.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="50" column="116" lean-forward="true" selection-start-line="50" selection-start-column="116" selection-end-line="50" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/ControllerRegistroCita.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5605#5606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/GestionregistroCita.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/FuncionesOrganicaGenerales/ControllerGestionExamenesFisicos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/RegistroCita/ControladorGestionCitas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

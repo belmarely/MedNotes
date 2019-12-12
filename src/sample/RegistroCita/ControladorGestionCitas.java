@@ -1,5 +1,7 @@
 package sample.RegistroCita;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.modelos.FuncionesOrganicasGenerales;
@@ -52,9 +56,19 @@ public class ControladorGestionCitas implements Initializable {
     private ObservableList<RegistroCitas> listaCitas;
     private String dato;
 
+    @FXML
+    private TextField busqueda;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         actualizarTableViewLista();
+        busqueda.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                dato= busqueda.getText();
+                buscarPorNombreOIdentidad();
+            }
+        });
     }
 
     public void actualizarTableViewLista(){
@@ -130,5 +144,9 @@ public class ControladorGestionCitas implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+
+    public void cambioTexto(InputMethodEvent inputMethodEvent) {
+
     }
 }
