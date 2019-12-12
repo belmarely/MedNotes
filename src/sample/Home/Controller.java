@@ -1,6 +1,5 @@
 package sample.Home;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,16 +37,16 @@ public class Controller implements Initializable {
     private Button btnSignout;
 
     @FXML
-    private Pane pnlCustomer;
+    private Pane pnlDiagnosticos;
 
     @FXML
-    private Pane pnlOrders;
+    private Pane pnlCitas;
 
     @FXML
-    private Pane pnlOverview;
+    private Pane pnlExpedientes;
 
     @FXML
-    private Pane pnlMenus;
+    private Pane pnlUsuarios;
 
     @FXML
     private Button btnMenuDesplegable;
@@ -67,8 +66,8 @@ public class Controller implements Initializable {
         if(btnMedNotes.getText().equals("")){
             vboxMenuLat.setPrefWidth(257);
             btnMedNotes.setText("MedNotes");
-            btnImgMedNotes.setFitWidth(98);
-            btnImgMedNotes.setFitHeight(101);
+            btnImgMedNotes.setFitWidth(143);
+            btnImgMedNotes.setFitHeight(107);
 
         } else {
             vboxMenuLat.setPrefWidth(45);
@@ -85,48 +84,40 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Node[] nodes = new Node[10];
-        for (int i = 0; i < nodes.length; i++) {
-            try {
-
-                final int j = i;
-                nodes[i] = FXMLLoader.load(getClass().getResource("Item.fxml"));
-
-                //give the items some effect
-
-                nodes[i].setOnMouseEntered(event -> {
-                    nodes[j].setStyle("-fx-background-color : #0A0E3F");
-                });
-                nodes[i].setOnMouseExited(event -> {
-                    nodes[j].setStyle("-fx-background-color : #348F87");
-                });
-                pnItems.getChildren().add(nodes[i]);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
     }
 
 
     public void handleClicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnDiagnosticos) {
-            pnlCustomer.setStyle("-fx-background-color :  #348F87");
-            pnlCustomer.toFront();
+            pnlDiagnosticos.setStyle("-fx-background-color :  #348F87");
+            pnlDiagnosticos.toFront();
         }
         if (actionEvent.getSource() == btnUsuarios) {
-            pnlMenus.setStyle("-fx-background-color : #53639F");
-            pnlMenus.toFront();
+            pnlUsuarios.setStyle("-fx-background-color : #53639F");
+            pnlUsuarios.toFront();
         }
         if (actionEvent.getSource() == btnExpedientes) {
-            pnlOverview.setStyle("-fx-background-color : #348F87");
-            pnlOverview.toFront();
+            pnlExpedientes.setStyle("-fx-background-color : #272935");
+            pnlExpedientes.toFront();
         }
         if(actionEvent.getSource()== btnCitas)
         {
-            pnlOrders.setStyle("-fx-background-color : #464F67");
-            pnlOrders.toFront();
+            pnlCitas.setStyle("-fx-background-color : #464F67");
+            pnlCitas.toFront();
         }
+    }
+
+    public void BotonInvisible(ActionEvent actionEvent) {
+        if (btnImgMedNotes.isVisible()){
+            btnImgMedNotes.setVisible(false);
+            vboxMenuLat.setPrefWidth(257);
+            btnMedNotes.setText("MedNotes");
+        } else {
+            btnImgMedNotes.isVisible();
+            btnImgMedNotes.setVisible(true);
+            vboxMenuLat.setPrefWidth(45);
+        }
+
     }
 }
 
