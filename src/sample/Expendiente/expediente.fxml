@@ -41,7 +41,6 @@
         <TextField id="txtFechaNacimiento" fx:id="txtFechaNacimiento" layoutX="181.0" layoutY="244.0" />
 
         <Label id="lblNacionalidad" layoutX="344.0" layoutY="248.0" text="Nacionalidad:" />
-        <ComboBox id="cboxNacionalidad" fx:id="nacionalidad" disable="true" editable="true" layoutX="423.0" layoutY="244.0" opacity="0.82" prefWidth="150.0" />
 
         <Label id="lblEdad" layoutX="57.0" layoutY="281.0" text="Edad:" />
         <TextField id="txtEdad" fx:id="edad" layoutX="96.0" layoutY="277.0" />
@@ -71,13 +70,11 @@
         </ImageView>
 
 
-        <CheckBox fx:id="checkAlcoholismo" layoutX="69.0" layoutY="458.0" mnemonicParsing="false" text="Alcoholismo" />
+        <CheckBox fx:id="checkAlcoholismo" layoutX="96.0" layoutY="458.0" mnemonicParsing="false" text="Tabaquismo" />
 
-        <CheckBox fx:id="chechTabaquismo" layoutX="202.0" layoutY="458.0" mnemonicParsing="false" text="Tabaquismo" />
+        <CheckBox fx:id="chechTabaquismo" layoutX="270.0" layoutY="458.0" mnemonicParsing="false" text="Alcoholismo" />
 
-        <CheckBox fx:id="checkOtraDroga" layoutX="329.0" layoutY="458.0" mnemonicParsing="false" text="Otra Droga:" />
-
-        <Label fx:id="lblOtros" layoutX="417.0" layoutY="458.0" text="____________________________" />
+        <CheckBox fx:id="checkOtraDroga" layoutX="447.0" layoutY="458.0" mnemonicParsing="false" text="Otra Droga:" />
         <ImageView fitHeight="112.0" fitWidth="87.0" layoutX="48.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../img/imagen-de-usuario-con-fondo-negro.png" />
@@ -101,7 +98,7 @@
         <Label id="lblTraumas" layoutX="58.0" layoutY="606.0" text="Traumas:" />
         <TextField fx:id="txtTraumas" layoutX="118.0" layoutY="602.0" prefHeight="25.0" prefWidth="456.0" />
 
-        <Button fx:id="btnGuardar" layoutX="459.0" layoutY="655.0" mnemonicParsing="false" text="Guardar" onAction="#BotonGuardarActualizar" />
+        <Button fx:id="btnGuardar" layoutX="459.0" layoutY="655.0" mnemonicParsing="false" onAction="#BotonGuardarActualizar" text="Guardar" />
 
 
         <ComboBox fx:id="sex" layoutX="414.0" layoutY="176.0" prefWidth="150.0">
@@ -127,6 +124,7 @@
         </ComboBox>
 
         <Button fx:id="btnCancelar" layoutX="538.0" layoutY="655.0" mnemonicParsing="false" onAction="#cerrar" text="Button" />
+      <ComboBox fx:id="nacionalidad" layoutX="424.0" layoutY="244.0" prefWidth="150.0" />
 
 
     </children>

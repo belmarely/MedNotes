@@ -1,5 +1,7 @@
 package sample.Expendiente;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -13,8 +15,11 @@ public class ControllerExpediente {
     private String alcoholismo = "";//capturarValorAlcoholismo();
     private String tabaquismo =""; //capturarValorTabaquismo();
     private String otraDroga = "";//capturarValorOtraDroga();
+    private String sangreTipo = "";//capturarValorOtraDroga();
+    private String sexo ="";
+    private int pais;
 
-    private String sexo ="M";
+    private ObservableList<Expendiente> listaPaises;
     @FXML
     private TextField txtNombre;
 
@@ -30,7 +35,7 @@ public class ControllerExpediente {
     @FXML
     private TextField txtFechaNacimiento;
     @FXML
-    private ComboBox nacionalidad;
+    private ComboBox<Expendiente> nacionalidad;
 
     @FXML
     private TextField direccion;
@@ -69,7 +74,10 @@ public class ControllerExpediente {
     @FXML
 
     private Button btnGuardar;
-
+    @FXML
+    private void initialize() {
+        llenarComboboxPaises();
+    }
 
     public void btnCancelar() {
 
@@ -104,6 +112,28 @@ public class ControllerExpediente {
             mensaje("Campos Vacios");
         }
 
+    }
+
+    private String capturarSexo (){
+        sexo = sex.getSelectionModel(). getSelectedItem().toString();
+        return sexo;
+    }
+
+    private int capturarPais (){
+        pais = nacionalidad.getSelectionModel(). getSelectedItem().getId();
+        return pais;
+    }
+
+    private String capturarTipoSangre (){
+        sangreTipo = sangre.getSelectionModel(). getSelectedItem().toString();
+        return sangreTipo;
+
+    }
+
+    private void llenarComboboxPaises() {
+        listaPaises = FXCollections.observableArrayList();
+        Expendiente.comboboxPaises(listaPaises);
+        nacionalidad.setItems(listaPaises);
     }
 
     private String capturarValorAlcoholismo(){
@@ -147,10 +177,8 @@ public class ControllerExpediente {
                 !txtTraumas.getText().isBlank() &&
                 !direccion.getText().isBlank() &&
                 !edad.getText().isBlank() &&
-                !seguridadSocial.getText().isBlank()) //&&
-                //!checkAlcoholismo.isSelected() &&
-                //!chechTabaquismo.isSelected() &&
-                //!checkOtraDroga.isSelected()){
+                !seguridadSocial.getText().isBlank())
+
         {
             return true;
         }
@@ -168,8 +196,8 @@ public class ControllerExpediente {
                 txtNombre.getText(),txtApellido.getText(),telefono.getText(),txtIdentidad.getText(),sexo,
                 edad.getText(),txtLugarNacimiento.getText(),
                 txtFechaNacimiento.getText(), direccion.getText(),
-                seguridadSocial.getText(),nacionalidad.getVisibleRowCount(),
-                sangre.getAccessibleHelp(),tabaquismo,alcoholismo,otraDroga,
+                seguridadSocial.getText(),pais,
+                sangreTipo,tabaquismo,alcoholismo,otraDroga,
                 txtHospitalarios.getText(),txtAlergias.getText(), txtTraumas.getText());
 
         return expedienteInstancia;
@@ -180,6 +208,12 @@ public class ControllerExpediente {
     public void Guardar() {
 
         if (comprobarCamposVacios()) {
+            capturarValorTabaquismo();
+            capturarValorAlcoholismo();
+            capturarValorOtraDroga();
+            capturarSexo();
+            capturarTipoSangre();
+            capturarPais();
             Expendiente expediente = crearIntancia();
             Expendiente.Guardar(expediente);
             mensaje("Datos guardados exitosamente");
