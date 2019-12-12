@@ -17,7 +17,7 @@ public class Controller {
         try
         {
             Stage planillaStage=new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("InicioSesion/iniciarSesion.fxml"));
+            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("RegistroCita/registroCita.fxml"));
             Scene scene = new Scene(root,560,390);
             planillaStage.setScene(scene);
             planillaStage.show();

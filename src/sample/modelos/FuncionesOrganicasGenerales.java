@@ -1,5 +1,6 @@
 package sample.modelos;
 
+import javafx.collections.ObservableList;
 import sample.libs.Conexion;
 
 import java.sql.PreparedStatement;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FuncionesOrganicasGenerales {
+    private String id_examen_fisico;
+    private String id_paciente;
     private String apetito ;
     private String sed;
     private String miccion ;
@@ -34,6 +37,42 @@ public class FuncionesOrganicasGenerales {
     private String txtGenitou;
     private String txtInfatico;
     private String txtEndocrino;
+    private String identidad;
+    private String nombresPaciente;
+    private String apellidosPaciente;
+    private String creacionExamen;
+
+    public String getCreacionExamen() {
+        return creacionExamen;
+    }
+
+    public void setCreacionExamen(String creacionExamen) {
+        this.creacionExamen = creacionExamen;
+    }
+
+    public String getIdentidad() {
+        return identidad;
+    }
+
+    public void setIdentidad(String identidad) {
+        this.identidad = identidad;
+    }
+
+    public String getNombresPaciente() {
+        return nombresPaciente;
+    }
+
+    public void setNombresPaciente(String nombresPaciente) {
+        this.nombresPaciente = nombresPaciente;
+    }
+
+    public String getApellidosPaciente() {
+        return apellidosPaciente;
+    }
+
+    public void setApellidosPaciente(String apellidosPaciente) {
+        this.apellidosPaciente = apellidosPaciente;
+    }
 
     public static boolean Guardar(FuncionesOrganicasGenerales examenFisico){
         try{
@@ -56,7 +95,7 @@ public class FuncionesOrganicasGenerales {
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
-     return false;
+        return false;
     }
 
     public static boolean Actualizar(FuncionesOrganicasGenerales examenFisico){
@@ -151,13 +190,31 @@ public class FuncionesOrganicasGenerales {
         this.txtEndocrino = txtEndocrino;
     }
 
+    public String getId_examen_fisico() {
+        return id_examen_fisico;
+    }
+
+    public void setId_examen_fisico(String id_examen_fisico) {
+        this.id_examen_fisico = id_examen_fisico;
+    }
+
+    public String getId_paciente() {
+        return id_paciente;
+    }
+
+    public void setId_paciente(String id_paciente) {
+        this.id_paciente = id_paciente;
+    }
+
     public static FuncionesOrganicasGenerales BuscarRegistro(){
         ResultSet resultado = null;
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "SELECT * FROM examenes_fisicos WHERE id_examen_fisico= ? ;"
+                    "SELECT * FROM examenes_fisicos " +
+                            "inner join expedientes on expedientes.id_expediente=examenes_fisicos.id_paciente" +
+                            " WHERE id_examen_fisico = ? ;"
             );
-            sentencia.setInt(1,3);
+            sentencia.setInt(1,MisFunciones.getIdExamenFisico());
             resultado = sentencia.executeQuery();
             while (resultado.next()) {
                 return FuncionesOrganicasGenerales.crearInstancia(resultado);
@@ -200,10 +257,42 @@ public class FuncionesOrganicasGenerales {
                     resultado.getString("infatico"),
                     resultado.getString("endocrino")
             );
+            examenFisico.setId_examen_fisico(resultado.getString("id_examen_fisico"));
+            examenFisico.setCreacionExamen(resultado.getString("examenes_fisicos.creacion"));
+            examenFisico.setId_paciente(resultado.getString("id_expediente"));
+            if (resultado.getString("identidad")!= null){
+                examenFisico.setIdentidad(resultado.getString("identidad"));
+            }
+            if (resultado.getString("nombres")!= null){
+                examenFisico.setNombresPaciente(resultado.getString("nombres"));
+            }
+            if (resultado.getString("apellidos")!= null){
+                examenFisico.setApellidosPaciente(resultado.getString("apellidos"));
+            }
         } catch (SQLException e) {
             System.err.println("Algo salio mal " + e.getMessage());
         }
         return examenFisico;
+    }
+
+    public static ObservableList<FuncionesOrganicasGenerales> llenarTableView(ObservableList<FuncionesOrganicasGenerales> lista){
+        PreparedStatement sentencia = null;
+        try {
+            sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM examenes_fisicos " +
+                            "inner join expedientes on expedientes.id_expediente=" +
+                            "examenes_fisicos.id_paciente;"
+            );
+            ResultSet resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                lista.add(FuncionesOrganicasGenerales.crearInstancia(resultado));
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return lista;
     }
 
     public String getApetito() {
