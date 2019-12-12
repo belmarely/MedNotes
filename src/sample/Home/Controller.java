@@ -1,16 +1,17 @@
 package sample.Home;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,22 +22,17 @@ public class Controller implements Initializable {
     @FXML
     private VBox pnItems = null;
     @FXML
-    private Button btnOverview;
+    private Button btnExpedientes;
 
     @FXML
-    private Button btnOrders;
+    private Button btnCitas;
 
     @FXML
-    private Button btnCustomers;
+    private Button btnDiagnosticos;
 
     @FXML
-    private Button btnMenus;
+    private Button btnUsuarios;
 
-    @FXML
-    private Button btnPackages;
-
-    @FXML
-    private Button btnSettings;
 
     @FXML
     private Button btnSignout;
@@ -52,6 +48,40 @@ public class Controller implements Initializable {
 
     @FXML
     private Pane pnlMenus;
+
+    @FXML
+    private Button btnMenuDesplegable;
+
+    @FXML
+    private  VBox vboxMenuLat;
+
+    @FXML
+    private Button btnMedNotes;
+
+    @FXML
+    private ImageView btnImgMedNotes;
+
+
+    public void onOcultarMenuClicked(MouseEvent event){
+
+        if(btnMedNotes.getText().equals("")){
+            vboxMenuLat.setPrefWidth(257);
+            btnMedNotes.setText("MedNotes");
+            btnImgMedNotes.setFitWidth(98);
+            btnImgMedNotes.setFitHeight(101);
+
+        } else {
+            vboxMenuLat.setPrefWidth(45);
+            btnMedNotes.setText("");
+            btnImgMedNotes.setFitWidth(40);
+            btnImgMedNotes.setFitHeight(40);
+        }
+    }
+
+    public void onExitButtonClicked(MouseEvent event) {
+        Stage stage = (Stage) btnSignout.getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,22 +110,24 @@ public class Controller implements Initializable {
 
 
     public void handleClicks(ActionEvent actionEvent) {
-        if (actionEvent.getSource() == btnCustomers) {
+        if (actionEvent.getSource() == btnDiagnosticos) {
             pnlCustomer.setStyle("-fx-background-color :  #348F87");
             pnlCustomer.toFront();
         }
-        if (actionEvent.getSource() == btnMenus) {
+        if (actionEvent.getSource() == btnUsuarios) {
             pnlMenus.setStyle("-fx-background-color : #53639F");
             pnlMenus.toFront();
         }
-        if (actionEvent.getSource() == btnOverview) {
+        if (actionEvent.getSource() == btnExpedientes) {
             pnlOverview.setStyle("-fx-background-color : #348F87");
             pnlOverview.toFront();
         }
-        if(actionEvent.getSource()==btnOrders)
+        if(actionEvent.getSource()== btnCitas)
         {
             pnlOrders.setStyle("-fx-background-color : #464F67");
             pnlOrders.toFront();
         }
     }
 }
+
+
