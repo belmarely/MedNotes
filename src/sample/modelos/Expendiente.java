@@ -1,11 +1,16 @@
 package sample.modelos;
 
 import javafx.collections.ObservableList;
+<<<<<<< HEAD
+=======
+import javafx.scene.control.ComboBox;
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
 import sample.libs.Conexion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Expendiente {
@@ -32,8 +37,36 @@ public class Expendiente {
     private Date creacion;
     private String id_expediente;
 
+<<<<<<< HEAD
     public static boolean Guardar(Expendiente expediente) {
         try {
+=======
+
+    public Expendiente(int id, String nombrePais) {
+        this.id = id;
+        this.nombrePais = nombrePais;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombrePais() {
+        return nombrePais;
+    }
+
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
+    }
+
+    public static boolean Guardar(Expendiente expediente){
+
+        try{
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "INSERT INTO `registro_medico`.`expedientes` " +
                             "(`nombres`, `apellidos`, `telefono`, `identidad`, `sexo`, `edad`, " +
@@ -55,7 +88,27 @@ public class Expendiente {
         return false;
     }
 
+    public static void comboboxPaises(ObservableList<Expendiente> cbPaises){
+        ResultSet resultado = null;
 
+        try{
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT id, country_name FROM paises;"
+            );
+            ResultSet resultSet = sentencia.executeQuery();
+
+            while (resultSet.next()) {
+                cbPaises.add(new Expendiente( resultSet.getInt("id"),
+                        resultSet.getString("country_name")
+                ));
+            }
+
+        }catch (SQLException e){
+            System.err.println("Hola  : " + e.getMessage());
+        }
+
+
+    }
 
     public static boolean CrearUsuarioUrgente(String identidad, String nombres, String apellidos) {
         try {
@@ -500,5 +553,9 @@ public class Expendiente {
 
     public void setTraumaticos(String traumaticos) {
         this.traumaticos = traumaticos;
+    }
+
+    public String toString(){
+        return nombrePais;
     }
 }

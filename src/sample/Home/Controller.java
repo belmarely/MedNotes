@@ -9,8 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+<<<<<<< HEAD
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+=======
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -40,6 +43,7 @@ public class Controller implements Initializable {
     private Button btnSignout;
 
     @FXML
+<<<<<<< HEAD
     private BorderPane borderPanePrincipal;
 
     @FXML
@@ -85,6 +89,35 @@ public class Controller implements Initializable {
     public void onOcultarMenuClicked(MouseEvent event) {
 
         if (btnMedNotes.getText().equals("")) {
+=======
+    private Pane pnlDiagnosticos;
+
+    @FXML
+    private Pane pnlCitas;
+
+    @FXML
+    private Pane pnlExpedientes;
+
+    @FXML
+    private Pane pnlUsuarios;
+
+    @FXML
+    private Button btnMenuDesplegable;
+
+    @FXML
+    private  VBox vboxMenuLat;
+
+    @FXML
+    private Button btnMedNotes;
+
+    @FXML
+    private ImageView btnImgMedNotes;
+
+
+    public void onOcultarMenuClicked(MouseEvent event){
+
+        if(btnMedNotes.getText().equals("")){
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
             vboxMenuLat.setPrefWidth(257);
             btnMedNotes.setText("MedNotes");
             btnImgMedNotes.setFitWidth(143);
@@ -97,10 +130,21 @@ public class Controller implements Initializable {
             btnImgMedNotes.setFitHeight(40);
         }
     }
+<<<<<<< HEAD
 
     public void onExitButtonClicked(MouseEvent event) {
         Stage stage = (Stage) btnSignout.getScene().getWindow();
         stage.close();
+=======
+
+    public void onExitButtonClicked(MouseEvent event) {
+        Stage stage = (Stage) btnSignout.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
     }
 
 /*
@@ -127,6 +171,7 @@ public class Controller implements Initializable {
 
 
 
+<<<<<<< HEAD
     public void BotonInvisible(ActionEvent actionEvent) {
         if (btnImgMedNotes.isVisible()) {
             btnImgMedNotes.setVisible(false);
@@ -200,3 +245,40 @@ public class Controller implements Initializable {
 
 }
 
+=======
+    public void handleClicks(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == btnDiagnosticos) {
+            pnlDiagnosticos.setStyle("-fx-background-color :  #348F87");
+            pnlDiagnosticos.toFront();
+        }
+        if (actionEvent.getSource() == btnUsuarios) {
+            pnlUsuarios.setStyle("-fx-background-color : #53639F");
+            pnlUsuarios.toFront();
+        }
+        if (actionEvent.getSource() == btnExpedientes) {
+            pnlExpedientes.setStyle("-fx-background-color : #272935");
+            pnlExpedientes.toFront();
+        }
+        if(actionEvent.getSource()== btnCitas)
+        {
+            pnlCitas.setStyle("-fx-background-color : #464F67");
+            pnlCitas.toFront();
+        }
+    }
+
+    public void BotonInvisible(ActionEvent actionEvent) {
+        if (btnImgMedNotes.isVisible()){
+            btnImgMedNotes.setVisible(false);
+            vboxMenuLat.setPrefWidth(257);
+            btnMedNotes.setText("MedNotes");
+        } else {
+            btnImgMedNotes.isVisible();
+            btnImgMedNotes.setVisible(true);
+            vboxMenuLat.setPrefWidth(45);
+        }
+
+    }
+}
+
+
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7

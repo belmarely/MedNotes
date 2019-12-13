@@ -80,11 +80,18 @@ public class ControllerExpediente implements Initializable {
     @FXML
 
     private Button btnGuardar;
+<<<<<<< HEAD
 
     @FXML
     private DatePicker datapickDia;
     private String fecha;
 
+=======
+    @FXML
+    private void initialize() {
+        llenarComboboxPaises();
+    }
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
 
     public void btnCancelar() {
 
@@ -121,6 +128,7 @@ public class ControllerExpediente implements Initializable {
 
     }
 
+<<<<<<< HEAD
     public boolean convertirFecha(){
         try{
             java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(datapickDia.getValue());
@@ -140,6 +148,11 @@ public class ControllerExpediente implements Initializable {
             mensaje("No selecciono un campo");
         }
         return "";
+=======
+    private String capturarSexo (){
+        sexo = sex.getSelectionModel(). getSelectedItem().toString();
+        return sexo;
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
     }
 
     private int capturarPais (){
@@ -217,7 +230,11 @@ public class ControllerExpediente implements Initializable {
                 Expendiente(
                 txtNombre.getText(),txtApellido.getText(),telefono.getText(),txtIdentidad.getText(),sexo,
                 edad.getText(),txtLugarNacimiento.getText(),
+<<<<<<< HEAD
                 fecha, direccion.getText(),
+=======
+                txtFechaNacimiento.getText(), direccion.getText(),
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
                 seguridadSocial.getText(),pais,
                 sangreTipo,tabaquismo,alcoholismo,otraDroga,
                 txtHospitalarios.getText(),txtAlergias.getText(), txtTraumas.getText());
@@ -246,6 +263,23 @@ public class ControllerExpediente implements Initializable {
                 mensaje("Campos Vacios");
             }
 
+<<<<<<< HEAD
+=======
+        if (comprobarCamposVacios()) {
+            capturarValorTabaquismo();
+            capturarValorAlcoholismo();
+            capturarValorOtraDroga();
+            capturarSexo();
+            capturarTipoSangre();
+            capturarPais();
+            Expendiente expediente = crearIntancia();
+            Expendiente.Guardar(expediente);
+            mensaje("Datos guardados exitosamente");
+            btnCancelar();
+
+        }else{
+            mensaje("Campos Vacios");
+>>>>>>> f82c10f48370532885b98f906e9945adc045f5e7
         }
     }
 
