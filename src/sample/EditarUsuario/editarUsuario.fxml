@@ -5,40 +5,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="292.0" prefWidth="572.0" styleClass="fondo" stylesheets="@../css/cssLogin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CrearUsuario.ControllerCrearUsuario">
+<AnchorPane prefHeight="355.0" prefWidth="572.0" styleClass="fondo" stylesheets="@../css/cssLogin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditarUsuario.ControllerEditarUsuario">
     <children>
-        <VBox id="vbox1" alignment="CENTER" layoutX="-9.0" prefHeight="326.0" prefWidth="173.0" styleClass="vbox1" stylesheets="@../css/cssLogin.css">
-            <children>
-                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../img/logoNe.png" />
-                    </image>
-                </ImageView>
-                <Label text="Med Notes">
-                    <font>
-                        <Font name="Ebrima Bold" size="18.0" />
-                    </font></Label>
-                <Label text="Asistente Médico">
-                    <font>
-                        <Font name="System Bold" size="10.0" />
-                    </font></Label>
-            </children></VBox>
-        <Button id="btnCrearCuenta" fx:id="btnCrear" layoutX="239.0" layoutY="274.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#BotonGuardarActualizar" prefHeight="30.0" prefWidth="194.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Editar Usuario" />
-        <Label layoutX="305.0" layoutY="31.0" text="Editar Usuario">
+        <VBox id="vbox1" alignment="CENTER" layoutX="-9.0" prefHeight="355.0" prefWidth="200.0" styleClass="vbox1" stylesheets="@../css/cssLogin.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logoAzul.png" />
+               </image>
+            </ImageView>
+            <Label text="Med Notes">
+               <font>
+                  <Font name="Ebrima Bold" size="18.0" />
+               </font></Label>
+            <Label text="Asistente Médico">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+         </children></VBox>
+        <Button id="btnCrearCuenta" fx:id="btnGuardar" layoutX="243.0" layoutY="296.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#BotonGuardarActualizar" prefHeight="30.0" prefWidth="194.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Editar Usuario" />
+        <Label layoutX="306.0" layoutY="22.0" text="Editar Usuario">
             <font>
                 <Font name="Ebrima Bold" size="14.0" />
             </font></Label>
-        <Label id="lblNombre" layoutX="217.0" layoutY="69.0" text="Nombre" />
-        <TextField id="txtNombre" fx:id="txtNombre" layoutX="277.0" layoutY="65.0" prefHeight="25.0" prefWidth="226.0" />
-        <Label id="lblApellido" layoutX="217.0" layoutY="105.0" text="Apellido:" />
-        <TextField id="txtApellido" fx:id="txtApellido" layoutX="277.0" layoutY="101.0" prefHeight="25.0" prefWidth="226.0" />
-        <Label id="lblpassword" layoutX="217.0" layoutY="144.0" text="Correo Electrónico:" />
-        <TextField id="txtpassword" fx:id="txtPalabraClave" layoutX="321.0" layoutY="140.0" prefHeight="25.0" prefWidth="182.0" />
-        <Button id="btntCancelar" fx:id="btnCancelar" layoutX="446.0" layoutY="274.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Cancelar" />
-        <Label id="lblpassword" layoutX="217.0" layoutY="179.0" text="Contraseña: " />
-        <TextField id="txtpassword" fx:id="txtPalabraClave1" layoutX="292.0" layoutY="175.0" prefHeight="25.0" prefWidth="211.0" />
-        <Label id="lblpassword" layoutX="217.0" layoutY="213.0" text="Confirmar Contraseña: " />
-        <TextField id="txtpassword" fx:id="txtPalabraClave11" layoutX="341.0" layoutY="209.0" prefHeight="25.0" prefWidth="162.0" />
-        <Label layoutX="292.0" layoutY="240.0" prefHeight="17.0" prefWidth="211.0" text="Label" />
+        <Label id="lblNombre" layoutX="218.0" layoutY="93.0" text="Nombre" />
+        <TextField id="txtNombre" fx:id="txtNombre" layoutX="278.0" layoutY="89.0" prefHeight="25.0" prefWidth="226.0" />
+        <Label id="lblApellido" layoutX="218.0" layoutY="129.0" text="Apellido:" />
+        <TextField id="txtApellido" fx:id="txtApellido" layoutX="278.0" layoutY="125.0" prefHeight="25.0" prefWidth="226.0" />
+        <Label id="lblpassword" layoutX="218.0" layoutY="168.0" text="Correo Electrónico:" />
+        <TextField id="txtpassword" fx:id="txtCorreo" layoutX="322.0" layoutY="164.0" prefHeight="25.0" prefWidth="182.0" />
+        <Button id="btntCancelar" fx:id="btnCancelar" layoutX="446.0" layoutY="296.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cerrar" prefHeight="30.0" prefWidth="82.0" styleClass="botonInicioSesion" stylesheets="@../css/cssLogin.css" text="Cancelar" />
+        <Label id="lblpassword" layoutX="218.0" layoutY="203.0" text="Contraseña: " />
+        <TextField id="txtpassword" fx:id="txtClave" layoutX="293.0" layoutY="199.0" prefHeight="25.0" prefWidth="211.0" />
+        <Label id="lblpassword" layoutX="218.0" layoutY="237.0" text="Confirmar Contraseña: " />
+        <TextField id="txtpassword" fx:id="tctConfirmarClave" layoutX="342.0" layoutY="233.0" prefHeight="25.0" prefWidth="162.0" />
+      <Label layoutX="217.0" layoutY="60.0" text="Usuario: " />
+      <TextField fx:id="nombreUser" editable="false" layoutX="278.0" layoutY="56.0" prefHeight="25.0" prefWidth="226.0" />
     </children>
 </AnchorPane>

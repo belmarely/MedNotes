@@ -1,5 +1,6 @@
 package sample.modelos;
 
+import javafx.collections.ObservableList;
 import sample.libs.Conexion;
 
 import java.sql.PreparedStatement;
@@ -8,12 +9,14 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Expendiente {
+    private int id;
+    private String nombrePais;
     private String nombres;
     private String apellidos;
     private String telefono;
     private String identidad;
     private String sexo;
-    private String edad ;
+    private String edad;
     private String lugarNacimiento;
     private String fechaNacimiento;
     private String direccion;
@@ -27,10 +30,10 @@ public class Expendiente {
     private String alergicos;
     private String traumaticos;
     private Date creacion;
+    private String id_expediente;
 
-    public static boolean Guardar(Expendiente expediente){
-
-        try{
+    public static boolean Guardar(Expendiente expediente) {
+        try {
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "INSERT INTO `registro_medico`.`expedientes` " +
                             "(`nombres`, `apellidos`, `telefono`, `identidad`, `sexo`, `edad`, " +
@@ -40,12 +43,12 @@ public class Expendiente {
                             ", `antecedentes_alergicos` , `antecedentes_traumaticos`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
             );
 
-            sentencia = expediente.seteandoSentenciaPreparada(expediente,sentencia);
+            sentencia = expediente.seteandoSentenciaPreparada(expediente, sentencia);
 
-            boolean resultado=  sentencia.execute();
+            boolean resultado = sentencia.execute();
             return resultado;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
@@ -54,9 +57,29 @@ public class Expendiente {
 
 
 
-    public static boolean Actualizar(Expendiente actualizar){
+    public static boolean CrearUsuarioUrgente(String identidad, String nombres, String apellidos) {
+        try {
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "INSERT INTO `registro_medico`.`expedientes` (`nombres`, " +
+                            "`apellidos`, `identidad`) VALUES (?, ?, ?);"
+            );
 
-        try{
+            sentencia.setString(1, nombres);
+            sentencia.setString(2, apellidos);
+            sentencia.setString(3, identidad);
+            sentencia.execute();
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+
+    public static boolean Actualizar(Expendiente actualizar) {
+
+        try {
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "UPDATE `registro_medico`.`expedientes` \n" +
                             "SET nombres=?`" +
@@ -69,15 +92,15 @@ public class Expendiente {
                             " WHERE (`id_expediente` = ?);"
             );
 
-            sentencia = actualizar.seteandoSentenciaPreparada(actualizar,sentencia);
-            sentencia.setInt(14,MisFunciones.getIdPaciente());
+            sentencia = actualizar.seteandoSentenciaPreparada(actualizar, sentencia);
+            sentencia.setInt(14, MisFunciones.getIdPaciente());
 
 
-            boolean resultado=  sentencia.execute();
+            boolean resultado = sentencia.execute();
             return resultado;
 
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
 
         }
@@ -87,43 +110,77 @@ public class Expendiente {
 
     }
 
+    public static ObservableList<Expendiente> llenarTableView(ObservableList<Expendiente> listaExpediente) {
+        PreparedStatement sentencia = null;
+        try {
+            sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM expedientes;"
+            );
+            ResultSet resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                listaExpediente.add(Expendiente.crearInstancia(resultado));
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return listaExpediente;
+    }
+
+    public static ObservableList<Expendiente> buscarIDYNombre(ObservableList<Expendiente> listaExpediente, String dato) {
+        PreparedStatement sentencia = null;
+        try {
+            sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM expedientes where " +
+                            "identidad like ? or nombres like ? or apellidos like ?;"
+            );
+            sentencia.setString(1,dato + "%");
+            sentencia.setString(2,dato + "%");
+            sentencia.setString(3,dato + "%");
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next()) {
+                listaExpediente.add(Expendiente.crearInstancia(resultado));
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return listaExpediente;
+    }
 
 
+    private PreparedStatement seteandoSentenciaPreparada(Expendiente setearExpediente, PreparedStatement sentencia) {
 
-    private PreparedStatement seteandoSentenciaPreparada(Expendiente setearExpediente, PreparedStatement sentencia){
-
-        try{
-            sentencia.setString(1,getNombres());
-            sentencia.setString(2,getApellidos());
-            sentencia.setString(3,getTelefono());
-            sentencia.setString(4,getIdentidad());
+        try {
+            sentencia.setString(1, getNombres());
+            sentencia.setString(2, getApellidos());
+            sentencia.setString(3, getTelefono());
+            sentencia.setString(4, getIdentidad());
             sentencia.setString(5, getSexo());
             sentencia.setString(6, getEdad());
             sentencia.setString(7, getLugarNacimiento());
-            sentencia.setString(8, getFechaNacimiento());
+            sentencia.setString(8, (getFechaNacimiento()));
             sentencia.setString(9, getDireccion());
             sentencia.setString(10, getSeguridadSocial());
             sentencia.setInt(11, getNacionalidad());
             sentencia.setString(12, getSangre());
-            sentencia.setString(13,getTabaquismo());
-            sentencia.setString(14,getAlcoholismo());
-            sentencia.setString(15,getOtraDroga());
-            sentencia.setString(16,getHospitalarios());
-            sentencia.setString(17,getAlergicos());
-            sentencia.setString(18,getTraumaticos());
+            sentencia.setString(13, getTabaquismo());
+            sentencia.setString(14, getAlcoholismo());
+            sentencia.setString(15, getOtraDroga());
+            sentencia.setString(16, getHospitalarios());
+            sentencia.setString(17, getAlergicos());
+            sentencia.setString(18, getTraumaticos());
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
         return sentencia;
     }
 
-    public Expendiente BuscarRegistro(){
-
+    public Expendiente BuscarRegistro() {
         ResultSet resultado = null;
-
-        try{
+        try {
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
                     "SELECT * FROM expedientes WHERE nombres= ? ;"
             );
@@ -133,20 +190,114 @@ public class Expendiente {
             while (resultado.next()) {
                 return Expendiente.crearInstancia(resultado);
             }
+        } catch (SQLException e) {
+            System.err.println("Hola  : " + e.getMessage());
+        }
+        return null;
+    }
+
+
+    public static Expendiente BuscarRegistroLlenado() {
+        ResultSet resultado = null;
+        try {
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM expedientes WHERE id_expediente = ? ;"
+            );
+            sentencia.setInt(1, MisFunciones.getIdPaciente());
+            resultado = sentencia.executeQuery();
+
+            while (resultado.next()) {
+                return Expendiente.crearInstancia(resultado);
+            }
+        } catch (SQLException e) {
+            System.err.println("Hola  : " + e.getMessage());
+        }
+        return null;
+    }
+
+    public static boolean confirmarIdentidad(String identidad) {
+        ResultSet resultado = null;
+        try {
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM expedientes WHERE identidad = ? ;"
+            );
+            sentencia.setString(1, identidad);
+            resultado = sentencia.executeQuery();
+            while (resultado.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error ingrese una identidad correcta: " + e.getMessage());
+        }
+        return false;
+    }
+
+    public String getNombrePais() {
+        return nombrePais;
+    }
+
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
+    }
+
+    public static void comboboxPaises(ObservableList<Expendiente> cbPaises){
+        ResultSet resultado = null;
+
+        try{
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT id, country_name FROM paises;"
+            );
+            ResultSet resultSet = sentencia.executeQuery();
+
+            while (resultSet.next()) {
+                cbPaises.add(new Expendiente( resultSet.getInt("id"),
+                        resultSet.getString("country_name")
+                ));
+            }
 
         }catch (SQLException e){
             System.err.println("Hola  : " + e.getMessage());
         }
 
-        return null;
 
     }
+    public Expendiente(int id, String nombrePais) {
+        this.id = id;
+        this.nombrePais = nombrePais;
+    }
 
+    public String toString(){
+        return nombrePais;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int obtenerIdPaciente(String identidad) {
+        ResultSet resultado = null;
+        try {
+            PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
+                    "SELECT * FROM expedientes WHERE identidad = ? ;"
+            );
+            sentencia.setString(1, identidad);
+            resultado = sentencia.executeQuery();
+            while (resultado.next()) {
+                return resultado.getInt("id_expediente");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error ingrese una identidad correcta: " + e.getMessage());
+        }
+        return 0;
+    }
 
 
     private static Expendiente crearInstancia(ResultSet resultado) {
 
-        Expendiente expendienteInstancia  = null;
+        Expendiente expendienteInstancia = null;
 
         try {
             expendienteInstancia = new Expendiente(resultado.getString("nombres"),
@@ -160,21 +311,29 @@ public class Expendiente {
                     resultado.getString("direccion"),
                     resultado.getString("seguridad_social"),
                     resultado.getInt("nacionalidad"),
-                    resultado.getString("tipo_sangre"),
+                    resultado.getString("tipo_de_sangre"),
                     resultado.getString("tabaquismo"),
                     resultado.getString("alcoholismo"),
                     resultado.getString("otras_drogas"),
-                    resultado.getString("antecendetes_hospitalarios"),
-                    resultado.getString("antecendetes_alergicos"),
-                    resultado.getString("antecendetes_traumaticos")
+                    resultado.getString("antecedentes_hospitalarios"),
+                    resultado.getString("antecedentes_alergicos"),
+                    resultado.getString("antecedentes_traumaticos")
             );
             expendienteInstancia.creacion = resultado.getDate("creacion");
-
+            expendienteInstancia.setId_expediente(resultado.getString("id_expediente"));
         } catch (SQLException e) {
             System.err.println("Algo salio mal " + e.getMessage());
         }
 
         return expendienteInstancia;
+    }
+
+    public String getId_expediente() {
+        return id_expediente;
+    }
+
+    public void setId_expediente(String id_expediente) {
+        this.id_expediente = id_expediente;
     }
 
     public Expendiente(String nombres, String apellidos, String telefono, String identidad, String sexo, String edad, String lugarNacimiento, String fechaNacimiento, String direccion, String seguridadSocial, int nacionalidad, String sangre, String tabaquismo, String alcoholismo, String otraDroga, String hospitalarios, String alergicos, String traumaticos) {

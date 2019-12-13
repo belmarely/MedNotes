@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistroCita.ControladorGestionCitas">
+    <children>
+        <ScrollPane layoutX="4.0" layoutY="4.0" prefHeight="392.0" prefWidth="600.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="596.0">
+                    <children>
+                        <TableView fx:id="tableViewCita" layoutX="-130.0" layoutY="200.0" onMouseClicked="#obtenerIdCita" prefHeight="200.0" prefWidth="482.0" AnchorPane.bottomAnchor="-200.0" AnchorPane.leftAnchor="-130.0" AnchorPane.rightAnchor="-26.0" AnchorPane.topAnchor="200.0">
+                            <columns>
+                                <TableColumn fx:id="colID" prefWidth="75.0" text="Id" visible="false" />
+                                <TableColumn fx:id="colIdentidad" prefWidth="128.99996948242188" text="Identidad" />
+                                <TableColumn fx:id="colNombres" prefWidth="109.0" text="Nombres" />
+                                <TableColumn fx:id="colApellidos" minWidth="0.0" prefWidth="230.0" text="Apellidos" />
+                                <TableColumn fx:id="colFecha" prefWidth="187.0" text="Fecha" />
+                                <TableColumn fx:id="colHora" prefWidth="76.0" text="Hora" />
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="busqueda" layoutX="37.0" layoutY="40.0" onInputMethodTextChanged="#cambioTexto" />
+                  <Button fx:id="actualizar" layoutX="383.0" layoutY="145.0" mnemonicParsing="false" onAction="#actualizacion" text="Actualizar" />
+                    </children>
+
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Button layoutX="388.0" layoutY="50.0" mnemonicParsing="false" onAction="#abrirFormularioNuevo" text="Nuevo" />
+        <Button layoutX="388.0" layoutY="80.0" mnemonicParsing="false" onAction="#abrirFormularioEditar" text="Editar" />
+        <Button layoutX="388.0" layoutY="110.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+
+    </children>
+</AnchorPane>

@@ -1,20 +1,31 @@
 package sample.Expendiente;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import sample.modelos.Expendiente;
 import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
+import sample.modelos.RegistroCitas;
 
-public class ControllerExpediente {
+import java.net.URL;
+import java.sql.Date;
+import java.util.ResourceBundle;
+
+public class ControllerExpediente implements Initializable {
 
     private String alcoholismo = "";//capturarValorAlcoholismo();
     private String tabaquismo =""; //capturarValorTabaquismo();
     private String otraDroga = "";//capturarValorOtraDroga();
+    private String sangreTipo = "";//capturarValorOtraDroga();
+    private String sexo ="";
+    private int pais;
 
-    private String sexo ="M";
+    private ObservableList<Expendiente> listaPaises;
     @FXML
     private TextField txtNombre;
 
@@ -30,7 +41,7 @@ public class ControllerExpediente {
     @FXML
     private TextField txtFechaNacimiento;
     @FXML
-    private ComboBox nacionalidad;
+    private ComboBox<Expendiente> nacionalidad;
 
     @FXML
     private TextField direccion;
@@ -70,6 +81,10 @@ public class ControllerExpediente {
 
     private Button btnGuardar;
 
+    @FXML
+    private DatePicker datapickDia;
+    private String fecha;
+
 
     public void btnCancelar() {
 
@@ -106,6 +121,44 @@ public class ControllerExpediente {
 
     }
 
+    public boolean convertirFecha(){
+        try{
+            java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(datapickDia.getValue());
+            fecha = gettedDatePickerDate.toString();
+            return true;
+        }catch (Exception e){
+            mensaje("No ha ingresado la fecha");
+            return false;
+        }
+    }
+
+    private String capturarSexo (){
+        try {
+            sexo = sex.getSelectionModel().getSelectedItem().toString();
+            return sexo;
+        }catch (Exception e){
+            mensaje("No selecciono un campo");
+        }
+        return "";
+    }
+
+    private int capturarPais (){
+        pais = nacionalidad.getSelectionModel(). getSelectedItem().getId();
+        return pais;
+    }
+
+    private String capturarTipoSangre (){
+        sangreTipo = sangre.getSelectionModel(). getSelectedItem().toString();
+        return sangreTipo;
+
+    }
+
+    private void llenarComboboxPaises() {
+        listaPaises = FXCollections.observableArrayList();
+        Expendiente.comboboxPaises(listaPaises);
+        nacionalidad.setItems(listaPaises);
+    }
+
     private String capturarValorAlcoholismo(){
         if (checkAlcoholismo.isSelected()){
             alcoholismo = "Si";
@@ -139,18 +192,15 @@ public class ControllerExpediente {
 
         if (!txtNombre.getText().isBlank() &&
                 !txtApellido.getText().isBlank() &&
-                !txtIdentidad.getText().isBlank() &&
-                !txtFechaNacimiento.getText().isBlank() &&
+                !txtIdentidad.getText().isBlank()  &&
                 !txtAlergias.getText().isBlank() &&
                 !txtHospitalarios.getText().isBlank() &&
                 !txtLugarNacimiento.getText().isBlank() &&
                 !txtTraumas.getText().isBlank() &&
                 !direccion.getText().isBlank() &&
                 !edad.getText().isBlank() &&
-                !seguridadSocial.getText().isBlank()) //&&
-                //!checkAlcoholismo.isSelected() &&
-                //!chechTabaquismo.isSelected() &&
-                //!checkOtraDroga.isSelected()){
+                !seguridadSocial.getText().isBlank())
+
         {
             return true;
         }
@@ -167,9 +217,9 @@ public class ControllerExpediente {
                 Expendiente(
                 txtNombre.getText(),txtApellido.getText(),telefono.getText(),txtIdentidad.getText(),sexo,
                 edad.getText(),txtLugarNacimiento.getText(),
-                txtFechaNacimiento.getText(), direccion.getText(),
-                seguridadSocial.getText(),nacionalidad.getVisibleRowCount(),
-                sangre.getAccessibleHelp(),tabaquismo,alcoholismo,otraDroga,
+                fecha, direccion.getText(),
+                seguridadSocial.getText(),pais,
+                sangreTipo,tabaquismo,alcoholismo,otraDroga,
                 txtHospitalarios.getText(),txtAlergias.getText(), txtTraumas.getText());
 
         return expedienteInstancia;
@@ -178,17 +228,25 @@ public class ControllerExpediente {
 
 
     public void Guardar() {
+        if (!comprobarIdentidad(txtIdentidad.getText())) {
+            if (comprobarCamposVacios()) {
+                capturarValorTabaquismo();
+                capturarValorAlcoholismo();
+                capturarValorOtraDroga();
+                capturarSexo();
+                capturarTipoSangre();
+                capturarPais();
+                convertirFecha();
+                Expendiente expediente = crearIntancia();
+                Expendiente.Guardar(expediente);
+                mensaje("Datos guardados exitosamente");
+                btnCancelar();
 
-        if (comprobarCamposVacios()) {
-            Expendiente expediente = crearIntancia();
-            Expendiente.Guardar(expediente);
-            mensaje("Datos guardados exitosamente");
-            btnCancelar();
+            } else {
+                mensaje("Campos Vacios");
+            }
 
-        }else{
-            mensaje("Campos Vacios");
         }
-
     }
 
 
@@ -214,8 +272,22 @@ public class ControllerExpediente {
 
 
 
+    public boolean comprobarIdentidad(String identidad){
 
+        if(Expendiente.confirmarIdentidad(identidad)){
+            mensaje("Ya existe un expediente con el mismo numero de identidad");
+        return Expendiente.confirmarIdentidad(identidad);
+        }
+        return Expendiente.confirmarIdentidad(identidad);
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        llenarComboboxPaises();
+    }
 
-
+    private void conversionFechaSqlaFechaUtil(Expendiente fechaNacimiento){
+       // Date fecha = fechaNacimiento.getFechaNacimiento();
+        //datapickDia.setValue(fecha.toLocalDate());
+    }
 }

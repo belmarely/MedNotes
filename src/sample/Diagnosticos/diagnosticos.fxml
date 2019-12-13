@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Diagnosticos.ControllerDiagnosticos">
+   <children>
+      <StackPane layoutX="-18.0" layoutY="-23.0" prefHeight="423.0" prefWidth="618.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21c6b6" height="70.0" stroke="#21c6b6" strokeType="INSIDE" width="600.0" />
+      <TextField fx:id="busqued" layoutX="85.0" layoutY="23.0" prefHeight="25.0" prefWidth="259.0" />
+      <TableView fx:id="diagnostico" layoutY="67.0" prefHeight="333.0" prefWidth="602.0">
+          <columns>
+              <TableColumn fx:id="coluPaciente" prefWidth="97.0" text="N. Expediente" visible="false" />
+              <TableColumn fx:id="colIdentidad" prefWidth="102.99998474121094" text="Nombre" />
+              <TableColumn fx:id="coluDiagnostico" prefWidth="360.00001525878906" text="Diagnósticos" />
+              <TableColumn fx:id="colucreacion" prefWidth="136.0" text="Creación" />
+          </columns>
+      </TableView>
+      <Button layoutX="23.0" layoutY="23.0" mnemonicParsing="false" styleClass="boton" stylesheets="@../css/cssLogin.css" text="Buscar:" />
+
+   </children>
+</AnchorPane>

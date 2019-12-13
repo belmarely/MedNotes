@@ -67,7 +67,33 @@ public class Controller {
         }
     }
 
+    public void editarUsuario(ActionEvent actionEvent) {
 
+        try
+        {
+            Stage planillaStage=new Stage();
+            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("EditarUsuario/editarUsuario.fxml"));
+            planillaStage.setScene(new Scene(root));
+            planillaStage.initStyle(StageStyle.UNDECORATED);
+
+            //drag it here
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+
+                planillaStage.setX(event.getScreenX() - x);
+                planillaStage.setY(event.getScreenY() - y);
+
+            });
+            planillaStage.show();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
 
 

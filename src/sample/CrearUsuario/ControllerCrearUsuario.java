@@ -2,21 +2,22 @@ package sample.CrearUsuario;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.InputMethodEvent;
 import javafx.stage.Stage;
 import sample.libs.Conexion;
 import sample.modelos.FuncionesOrganicasGenerales;
 import sample.modelos.MisFunciones;
 import sample.modelos.Usuario;
+import sample.modelos.UsuarioIniciarSesion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ControllerCrearUsuario {
+
+    private String nombreUsuario;
 
     @FXML
     private TextField txtNombre;
@@ -28,7 +29,7 @@ public class ControllerCrearUsuario {
     private TextField txtCorreo;
 
     @FXML
-    private TextField txtClave;
+    private PasswordField txtClave;
 
     @FXML
     private TextField txtConfirmarPalabraClave;
@@ -38,6 +39,9 @@ public class ControllerCrearUsuario {
 
     @FXML
     private Button btnCrear;
+
+    @FXML
+    private Label lblClave;
 
     public void btnCancelar() {
 
@@ -50,7 +54,7 @@ public class ControllerCrearUsuario {
 
         if (MisFunciones.getIdUsuario()!=0) {
             Actualizar();
-        } else {
+        } else{
             Guardar();
         }
     }
@@ -70,25 +74,14 @@ public class ControllerCrearUsuario {
 
     }
 
-    private void comprobarCampos(){
+    private String llenarNombreUser() {
+        if (MisFunciones.getIdUsuario() == MisFunciones.getIdUsuario()){
 
-        String confirmarPalabraClave = txtConfirmarPalabraClave.getText();
-        if (!txtNombre.getText().isBlank() &&
-                !txtApellido.getText().isBlank() &&
-                !txtCorreo.getText().isBlank() &&
-                !txtClave.getText().isBlank()){
+            Usuario editarUsuario = crearIntancia();
+            nombreUsuario = editarUsuario.getNombre_usuario();
 
-            if (txtClave.getText().equals(confirmarPalabraClave)) {
-                mensaje("Se creo un nuevo usuario con Éxito");
-
-            } else {
-                mensaje("Las Contraseñas no son iguales");
-            }
-        }else{
-            mensaje("Usario y/o contraseña vacios");
-        }
+        }return nombreUsuario;
     }
-
 
 
 
@@ -97,22 +90,35 @@ public class ControllerCrearUsuario {
         if (!txtNombre.getText().isEmpty() &&
                 !txtApellido.getText().isEmpty() &&
                 !txtCorreo.getText().isBlank() &&
-                !txtClave.getText().isBlank() &&
-                !txtConfirmarPalabraClave.getText().isBlank())
+                !txtClave.getText().isBlank()&&
+                !txtConfirmarPalabraClave.getText().isBlank() && (txtClave.getText().equals(txtConfirmarPalabraClave.getText())) && validarMayor8())
+        {
+            mensaje("Su nombre de usuario es: "+ llenarNombreUser());
+
+        } else {
+            mensaje("Las Contraseñas no son iguales");
+        }
         {
             return true;
         }
-        return false;
     }
 
 
 
     public Usuario crearIntancia(){
-        Usuario crearUsuario = new
-                Usuario(txtNombre.getText(),txtApellido.getText(),
-                txtCorreo.getText(),
-                txtClave.getText());
-        return crearUsuario;
+        try {
+
+            Usuario crearUsuario = new
+                    Usuario(txtNombre.getText(), txtApellido.getText(),
+                    txtCorreo.getText(),
+                    txtClave.getText());
+            return crearUsuario;
+
+        }catch (Exception e){
+            mensaje("Arregle el correo");
+        }
+
+        return crearIntancia();
 
     }
 
@@ -129,9 +135,16 @@ public class ControllerCrearUsuario {
 
     }
 
+    public void cerrar(ActionEvent actionEvent) {
+
+
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
+
+
+    }
 
     private void mensaje(String mensaje){
-
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(null);
         alert.setHeaderText(null);
@@ -140,4 +153,14 @@ public class ControllerCrearUsuario {
     }
 
 
+    public boolean validarMayor8() {
+        if(txtClave.getLength()>=8){
+            return(true);
+        }else{
+            mensaje("Su contraseña debe tener mas de 7 caracteres");
+            txtClave.setText("");
+            txtConfirmarPalabraClave.setText("");
+            return (false);
+        }
+    }
 }

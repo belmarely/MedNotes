@@ -14,11 +14,7 @@
          <image>
             <Image url="@../img/logomn2.png" />
          </image></ImageView>
-      <Button layoutX="77.0" layoutY="283.0" mnemonicParsing="false" onAction="#crearUsuario" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Crear Usuario">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button layoutX="243.0" layoutY="283.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Editar Usuario">
+      <Button layoutX="71.0" layoutY="283.0" mnemonicParsing="false" onAction="#crearUsuario" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: C3EFEB;" styleClass="botonInicioSesion" stylesheets="@css/cssLogin.css" text="Crear Usuario">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>

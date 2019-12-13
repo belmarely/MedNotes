@@ -165,7 +165,7 @@ public class ControllerFuncionesOrganicas {
         }
         if (examenFisico.getDefecacion().equals("Disminuido")){
             defecacion1.setSelected(true);
-            } else if(examenFisico.getDefecacion().equals("Aumentado")){
+        } else if(examenFisico.getDefecacion().equals("Aumentado")){
             defecacion2.setSelected(true);
         } else if (examenFisico.getDefecacion().equals("Sin Alteracion")){
             defecacion3.setSelected(true);
@@ -238,7 +238,7 @@ public class ControllerFuncionesOrganicas {
         }
 
         if (sueno1.isSelected()) {
-        sueno= "Disminuido";
+            sueno= "Disminuido";
         }else if (sueno2.isSelected()){
             sueno= "Aumentado";
         } else if (sueno3.isSelected()){
@@ -259,8 +259,8 @@ public class ControllerFuncionesOrganicas {
         if (comprobarCamposVacios()) {
             FuncionesOrganicasGenerales examenFisico = crearIntancia();
             FuncionesOrganicasGenerales.Actualizar(examenFisico);
-                mensaje("Datos Actualizados exitosamente");
-                btnCancelar();
+            mensaje("Datos Actualizados exitosamente");
+            btnCancelar();
 
         }else{
             mensaje("Campos Vacios");
@@ -311,6 +311,8 @@ public class ControllerFuncionesOrganicas {
                 txtSintomaPrin.getText(),txtGenitou.getText(),
                 txtInfatico.getText(),txtEndocrino.getText()
         );
+        String id_paciente = String.valueOf(MisFunciones.getIdPaciente());
+        examenFisico.setId_paciente(id_paciente);
         return examenFisico;
     }
 
@@ -318,9 +320,10 @@ public class ControllerFuncionesOrganicas {
         seleccionRadioBoton();
         if (comprobarCamposVacios()) {
             FuncionesOrganicasGenerales examenFisico = crearIntancia();
-                FuncionesOrganicasGenerales.Guardar(examenFisico);
-                    mensaje("Datos guardados exitosamente");
-                    btnCancelar();
+            FuncionesOrganicasGenerales.Guardar(examenFisico);
+            mensaje("Datos guardados exitosamente");
+            MisFunciones.setIdExamenFisico(0);
+            btnCancelar();
 
         }else{
             mensaje("Campos Vacios");

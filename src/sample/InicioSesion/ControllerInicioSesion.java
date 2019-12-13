@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sample.modelos.Usuario;
 import sample.modelos.UsuarioIniciarSesion;
 
 
@@ -18,10 +19,14 @@ public class ControllerInicioSesion {
     private  Button btnLogin;
 
     @FXML
+    private  Button enviar;
+
+    @FXML
     private TextField txtNombre_Usuario;
 
     @FXML
     private PasswordField txtPalabraClave;
+
 
     private void btnLogin(){
         Stage stage = (Stage) btnLogin.getScene().getWindow();
@@ -43,12 +48,11 @@ public class ControllerInicioSesion {
         if (!txtNombre_Usuario.getText().isEmpty() &&
                 !txtPalabraClave.getText().isBlank()){
             if (UsuarioIniciarSesion.comprobandoUsario(usuario,contrasena)) {
-                mensaje("Ha iniciado sesión correctamente");
                 try
                 {
                     Stage planillaStage=new Stage();
-                    AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("Home/Home.fxml"));
-                    Scene scene = new Scene(root,560,390);
+                    AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../Home/Home.fxml"));
+                    Scene scene = new Scene(root,1050,576);
                     planillaStage.setScene(scene);
                     planillaStage.show();
                 }
@@ -80,4 +84,5 @@ public class ControllerInicioSesion {
         comprobarCampos();
 
     }
+
 }

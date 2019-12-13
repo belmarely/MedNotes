@@ -1,10 +1,12 @@
 package sample.modelos;
 
+import javafx.scene.control.Alert;
 import sample.libs.Conexion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 import java.util.Date;
 
@@ -21,7 +23,7 @@ public class Usuario {
 
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "INSERT INTO `mednotes`.`usuarios` (`nombre`, `apellido`, `correo_electronico`,`nombre_usuario`, `palabra_clave`) \n" +
+                    "INSERT INTO `registro_medico`.`usuarios` (`nombre`, `apellido`, `correo`,`nombre_usuario`, `palabra_clave`) \n" +
                             "VALUES (?, ?, ?, ?,?);"
             );
 
@@ -43,12 +45,12 @@ public class Usuario {
 
         try{
             PreparedStatement sentencia = Conexion.abrirConexion().prepareStatement(
-                    "UPDATE `mednotes`.`usuarios` Set `nombre`= ?, `apellido`= ?, `correo_electronico`= ?, nombre_usuario = ?, `palabra_clave` = ?\n" +
-                            "WHERE (`id_usuario` = 1);"
+                    "UPDATE `registro_medico`.`usuarios` Set `nombre`= ?, `apellido`= ?, `correo_electronico`= ?, nombre_usuario = ?, `palabra_clave` = ?\n" +
+                            "WHERE (`id_usuario` = ?);"
             );
 
             sentencia = actualizar.seteandoSentenciaPreparada(actualizar,sentencia);
-            sentencia.setInt(29,MisFunciones.getIdUsuario());
+            sentencia.setInt(7,MisFunciones.getIdUsuario());
 
 
             boolean resultado=  sentencia.execute();
@@ -70,8 +72,11 @@ public class Usuario {
     private PreparedStatement seteandoSentenciaPreparada(Usuario crearUsuario, PreparedStatement sentencia){
 
         try{
-            sentencia.setString(1,getNombre_usuario());
-            sentencia.setString(2,getClave());
+            sentencia.setString(1, getNombre());
+            sentencia.setString(2, getApellido());
+            sentencia.setString(3, getCorreo_electronico());
+            sentencia.setString(4,getNombre_usuario());
+            sentencia.setString(5,getClave());
 
 
         }catch (SQLException e){
@@ -114,8 +119,8 @@ public class Usuario {
                     resultado.getString("apellido"),
                     resultado.getString("correo_electronico"),
                     resultado.getString("palabra_clave"));
-            usuario.creacion = resultado.getDate("creacion");
             usuario.nombre_usuario = resultado.getString("nombre_usuario");
+            usuario.creacion = resultado.getDate("creacion");
 
         } catch (SQLException e) {
             System.err.println("Algo salio mal " + e.getMessage());
@@ -158,7 +163,15 @@ public class Usuario {
         return correo_electronico;
     }
 
-    public void setCorreo_electronico(String correo_electronico) {
+    public void setCorreo_electronico(String correo_electronico)  {
+        if(!correo_electronico.matches("^([a-z0-9._%-]+@[a-z0-9]+\\.[a-z]{2,3})")){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(null);
+            alert.setHeaderText(null);
+            alert.setContentText("Formato de correo erroneo");
+            alert.showAndWait();
+        }
+
         this.correo_electronico = correo_electronico;
     }
     public String getNombre_usuario() {
@@ -176,7 +189,8 @@ public class Usuario {
 
 
 
-    public void setNombre_usuario(String nombre_usuario) {
+    public void setNombre_usuario(String nombre_usuario)
+    {
         this.nombre_usuario = nombre_usuario;
     }
 
@@ -193,8 +207,7 @@ public class Usuario {
 
     public String generarNombreUsuario(int contador) {
 
-        String tempNombreUsuario =
-                this.nombre_usuario.toLowerCase()+ "." + this.apellido.toLowerCase();
+        String tempNombreUsuario = this.getNombre().toLowerCase()+ "." + this.getApellido().toLowerCase();
 
         if (contador > 0) {
             tempNombreUsuario += "." + contador;

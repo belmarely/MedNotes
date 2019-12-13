@@ -20,7 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Diagnosticos/diagnosticos.fxml"));
         primaryStage.setTitle("Med Notes");
         primaryStage.setScene(new Scene(root));
         //set stage borderless

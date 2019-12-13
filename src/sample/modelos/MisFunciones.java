@@ -4,6 +4,15 @@ public class MisFunciones {
     private static int idUsuario;
     private static int idPaciente  ;
     private static int idExamenFisico ;
+    private static int id_citas;
+
+    public static int getId_citas() {
+        return id_citas;
+    }
+
+    public static void setId_citas(int id_citas) {
+        MisFunciones.id_citas = id_citas;
+    }
 
     public static int getIdExamenFisico() {
         return idExamenFisico;

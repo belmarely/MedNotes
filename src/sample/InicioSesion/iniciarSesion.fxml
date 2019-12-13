@@ -11,7 +11,7 @@
          <children>
             <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/logoNe.png" />
+                  <Image url="@../../img/logoAzul.png" />
                </image>
             </ImageView>
             <Label text="Med Notes">
@@ -39,6 +39,5 @@
             <Image url="@../../img/iconoInicio.png" />
          </image>
       </ImageView>
-      <Label id="lblOlvido" layoutX="364.0" layoutY="285.0" stylesheets="@../css/cssLogin.css" text="¿Olvidó su contraseña?" />
    </children>
 </AnchorPane>

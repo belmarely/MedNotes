@@ -16,8 +16,8 @@ public class ControllerHome extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         primaryStage.setScene(new Scene(root));
-        //set stage borderless
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        //Para quitarle el borde
+        /*primaryStage.initStyle(StageStyle.UNDECORATED);*/
 
         //drag it here
         root.setOnMousePressed(event -> {
@@ -31,9 +31,6 @@ public class ControllerHome extends Application {
 
         });
         primaryStage.show();
-    }
-    public void onOcultarMenuClicked(MouseEvent event) {
-
     }
 
 
